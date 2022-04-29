@@ -6,9 +6,7 @@ const Main = styled(Box)({
 });
 
 const MainContainer = styled(Box)({
-  backgroundColor: "lightblue",
   flex: 5,
-  borderTopRightRadius: 10,
 });
 
 export { Main, MainContainer };

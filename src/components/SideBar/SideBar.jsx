@@ -1,6 +1,20 @@
-import { Divider, List, ListItem, ListItemText } from "@mui/material";
+import {
+  Divider,
+  List,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
+import InboxIcon from "@mui/icons-material/Inbox";
 import React from "react";
-import { Sidebar, BottomSecton, Center, Logo, TopSection } from "./styles";
+import {
+  Sidebar,
+  BottomSecton,
+  Center,
+  Logo,
+  TopSection,
+  StyledListItem,
+} from "./styles";
 
 const SideBar = () => {
   return (
@@ -11,18 +25,14 @@ const SideBar = () => {
       <Divider variant="middle" />
       <Center>
         <List>
-          <ListItem>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
-          <ListItem>
-            <ListItemText primary="Dashboard" />
-          </ListItem>
+          <StyledListItem disablePadding>
+            <ListItemButton>
+              <ListItemIcon>
+                <InboxIcon />
+              </ListItemIcon>
+              <ListItemText primary="Inbox" />
+            </ListItemButton>
+          </StyledListItem>
         </List>
       </Center>
       <BottomSecton>bottom</BottomSecton>

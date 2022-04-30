@@ -1,12 +1,17 @@
 import React from "react";
-import { Main, MainContainer } from "./styles";
-import SideBar from "../../components/SideBar/SideBar";
+import { Main } from "./styles";
+import { Box, Toolbar } from "@mui/material";
+import Navbar from "../../components/Navbar/Navbar";
+import Widgets from "../../components/Widgets/Widgets";
 
 const Home = () => {
   return (
     <Main>
-      <SideBar />
-      <MainContainer>container</MainContainer>
+      <Navbar />
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        <Toolbar />
+        <Widgets />
+      </Box>
     </Main>
   );
 };

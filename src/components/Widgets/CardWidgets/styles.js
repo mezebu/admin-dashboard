@@ -8,7 +8,11 @@ const WidgetWrapper = styled(Box)(({ theme }) => ({
 const LeftWidgetContent = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between",
 }));
 
-export { WidgetWrapper, LeftWidgetContent };
+const WidgetIcons = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+});
+
+export { WidgetWrapper, LeftWidgetContent, WidgetIcons };

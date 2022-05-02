@@ -1,0 +1,15 @@
+.test {
+  padding: 5px;
+  border-radius: 5px;
+  background-color: red;
+}
+
+.approved {
+  color: green;
+  background-color: rgb(160, 245, 160);
+}
+
+.pending {
+  color: red;
+  background-color: rgb(253, 143, 143);
+}

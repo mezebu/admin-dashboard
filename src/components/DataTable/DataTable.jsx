@@ -26,7 +26,7 @@ const DataTable = () => {
   ];
 
   return (
-    <Box sx={{ height: 600, width: "100%", padding: 5 }}>
+    <Box sx={{ height: 600, padding: 5 }}>
       <DataGrid
         rows={userRows}
         columns={columns.concat(actionButtons)}

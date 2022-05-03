@@ -13,7 +13,7 @@ import "./styles.css";
 
 const TableList = () => {
   return (
-    <TableContainer sx={{ marginTop: 5 }} component={Paper}>
+    <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>

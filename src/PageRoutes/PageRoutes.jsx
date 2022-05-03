@@ -18,7 +18,7 @@ const PageRoutes = () => {
   };
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", width: "100%" }}>
       <CssBaseline />
       <Appbar drawerToggle={handleDrawerToggle} drawerWidth={drawerWidth} />
       <SideNav

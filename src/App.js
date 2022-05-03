@@ -2,7 +2,7 @@ import PageRoutes from "./PageRoutes/PageRoutes";
 
 function App() {
   return (
-    <div>
+    <div style={{ background: "rgb(247, 249, 252)" }}>
       <PageRoutes />
     </div>
   );

@@ -7,6 +7,7 @@ import { Home, List, Login, New, Single } from "../Pages";
 import Appbar from "../components/Appbar/Appbar";
 import { Toolbar } from "@mui/material";
 import SideNav from "../components/SideNav/SideNav";
+import { formInputs, products } from "../formInputs";
 
 const drawerWidth = 240;
 
@@ -18,7 +19,7 @@ const PageRoutes = () => {
   };
 
   return (
-    <Box sx={{ display: "flex", width: "100%" }}>
+    <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <Appbar drawerToggle={handleDrawerToggle} drawerWidth={drawerWidth} />
       <SideNav
@@ -42,13 +43,19 @@ const PageRoutes = () => {
               <Route path="login" element={<Login />} />
               <Route path="users">
                 <Route index element={<List />} />
-                <Route path=":userId" element={<New />} />
-                <Route path="single" element={<Single />} />
+                <Route path=":userId" element={<Single />} />
+                <Route
+                  path="new"
+                  element={<New inputs={formInputs} title="Add new user" />}
+                />
               </Route>
               <Route path="products">
                 <Route index element={<List />} />
-                <Route path=":productId" element={<New />} />
-                <Route path="product" element={<Single />} />
+                <Route path=":productId" element={<Single />} />
+                <Route
+                  path="product"
+                  element={<New inputs={products} title="Add new Product" />}
+                />
               </Route>
             </Route>
           </Routes>

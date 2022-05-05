@@ -1,12 +1,11 @@
 import React from "react";
 import { Box } from "@mui/material";
-
-import DataTable from "../../components/DataTable/DataTable";
+import EnhancedTable from "../../components/EnhancedTable/EnhancedTable";
 
 const List = () => {
   return (
     <Box component="div">
-      <DataTable />
+      <EnhancedTable />
     </Box>
   );
 };

@@ -1,30 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import {
-  Avatar,
   Badge,
   Box,
+  Button,
   Divider,
   Grid,
   IconButton,
   Paper,
-  styled,
   TextField,
   Toolbar,
   Typography,
 } from "@mui/material";
 import PhotoCamera from "@mui/icons-material/PhotoCamera";
-
-const Input = styled("input")({
-  display: "none",
-});
-
-const SmallAvatar = styled(Avatar)(({ theme }) => ({
-  width: 22,
-  height: 22,
-  border: `2px solid ${theme.palette.background.paper}`,
-}));
+import { Input, SmallAvatar } from "./styles";
 
 const New = ({ inputs, title }) => {
+  const [file, setFile] = useState("");
+
   return (
     <Box component="div" sx={{ width: "100%" }}>
       <Box sx={{ marginBottom: 5 }}>
@@ -38,7 +30,7 @@ const New = ({ inputs, title }) => {
         <Divider />
 
         <Toolbar />
-        <Paper elevation={0.8}>
+        <Paper elevation={1} sx={{ p: 2 }}>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={12} md={4}>
               <Box
@@ -50,7 +42,12 @@ const New = ({ inputs, title }) => {
                 }}
               >
                 <label htmlFor="icon-button-file">
-                  <Input accept="image/*" id="icon-button-file" type="file" />
+                  <Input
+                    accept="image/*"
+                    id="icon-button-file"
+                    type="file"
+                    onChange={(e) => setFile(e.target.files[0])}
+                  />
                   <IconButton
                     color="primary"
                     aria-label="upload picture"
@@ -63,7 +60,7 @@ const New = ({ inputs, title }) => {
                     >
                       <SmallAvatar
                         alt="profile"
-                        sx={{ width: 100, height: 100 }}
+                        src={file ? URL.createObjectURL(file) : ""}
                       />
                     </Badge>
                   </IconButton>
@@ -91,6 +88,13 @@ const New = ({ inputs, title }) => {
               </Box>
             </Grid>
           </Grid>
+          <Box
+            sx={{ display: "flex", justifyContent: "center", mt: 10, mb: 5 }}
+          >
+            <Button variant="contained" disableElevation>
+              Submit
+            </Button>
+          </Box>
         </Paper>
       </Box>
     </Box>

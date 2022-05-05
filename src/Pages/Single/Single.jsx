@@ -3,6 +3,7 @@ import { Box, Divider, Grid, Typography } from "@mui/material";
 import ProfileDetails from "./ProfileDetails/ProfileDetails";
 import ProfileWidgets from "./ProfileWidgets/ProfileWidgets";
 import Skills from "./Skills/Skills";
+import ProfileTable from "./ProfileTable/ProfileTable";
 
 const Single = () => {
   return (
@@ -25,6 +26,7 @@ const Single = () => {
         </Grid>
         <Grid item lg={8} md={12} sm={12} xs={12}>
           <ProfileWidgets />
+          <ProfileTable />
         </Grid>
       </Grid>
     </Box>

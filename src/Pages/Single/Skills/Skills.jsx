@@ -4,7 +4,7 @@ import React from "react";
 const Skills = () => {
   return (
     <Box marginTop={2}>
-      <Card elevation={0.5}>
+      <Card elevation={0}>
         <CardContent>
           <Typography sx={{ fontWeight: 600, pb: 3 }}>Skills</Typography>
         </CardContent>

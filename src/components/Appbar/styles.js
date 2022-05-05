@@ -1,4 +1,6 @@
-import { alpha, InputBase, styled } from "@mui/material";
+import { alpha, InputBase, styled, useScrollTrigger } from "@mui/material";
+import { createTheme } from "@mui/material/styles";
+import { cloneElement } from "react";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -43,4 +45,31 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export { Search, SearchIconWrapper, StyledInputBase };
+const ElevationScroll = ({ children, window }) => {
+  const trigger = useScrollTrigger({
+    disableHysteresis: true,
+    threshold: 0,
+    target: window ? window() : undefined,
+  });
+
+  return cloneElement(children, {
+    elevation: trigger ? 4 : 0,
+  });
+};
+
+const darkMode = createTheme({
+  palette: {
+    mode: "dark",
+    background: {
+      paper: "rgb(27, 38, 53)",
+    },
+  },
+});
+
+export {
+  Search,
+  ElevationScroll,
+  SearchIconWrapper,
+  StyledInputBase,
+  darkMode,
+};

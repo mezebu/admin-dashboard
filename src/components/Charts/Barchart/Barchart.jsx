@@ -5,13 +5,14 @@ import { data } from "./data";
 
 const Barchart = () => {
   return (
-    <Card sx={{ height: 500, width: "100%" }}>
+    <Card sx={{ height: 500, width: "100%", mb: 2 }}>
       <ResponsiveBar
         data={data}
         keys={["hot dog", "burger", "sandwich", "kebab", "fries", "donut"]}
         indexBy="country"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
-        padding={0.3}
+        padding={0}
+        innerPadding={3}
         groupMode="grouped"
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true }}

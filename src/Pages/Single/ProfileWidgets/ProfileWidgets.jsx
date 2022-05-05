@@ -14,7 +14,7 @@ const ProfileWidgets = () => {
   return (
     <Grid container spacing={1}>
       <Grid item lg={4} md={12} sm={12} xs={12}>
-        <Card elevation={0.5}>
+        <Card elevation={0}>
           <CardContent>
             <Box
               sx={{
@@ -40,7 +40,7 @@ const ProfileWidgets = () => {
         </Card>
       </Grid>
       <Grid item lg={4} md={12} sm={12} xs={12}>
-        <Card elevation={0.5}>
+        <Card elevation={0}>
           <CardContent>
             <Box
               sx={{
@@ -66,7 +66,7 @@ const ProfileWidgets = () => {
         </Card>
       </Grid>
       <Grid item lg={4} md={12} sm={12} xs={12}>
-        <Card elevation={0.5}>
+        <Card elevation={0}>
           <CardContent>
             <Box
               sx={{

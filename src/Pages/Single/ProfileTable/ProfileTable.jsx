@@ -5,7 +5,7 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
+import { Paper, Typography, Box } from "@mui/material";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -21,7 +21,10 @@ const rows = [
 
 const ProfileTable = () => {
   return (
-    <TableContainer sx={{ minWidth: 650 }} component={Paper}>
+    <TableContainer sx={{ mt: 3 }} component={Paper}>
+      <Box sx={{ pl: 2, pt: 2 }}>
+        <Typography variant="h6">Products</Typography>
+      </Box>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>

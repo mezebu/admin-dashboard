@@ -1,24 +1,31 @@
 import React from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Box, Button, Stack } from "@mui/material";
+import { Box, IconButton, Stack } from "@mui/material";
 import { columns, userRows } from "./data";
 import DeleteIcon from "@mui/icons-material/Delete";
+import { useNavigate } from "react-router-dom";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 
 const DataTable = () => {
+  const navigate = useNavigate();
+
   const actionButtons = [
     {
-      field: "action",
-      headerName: "Action",
+      field: "actions",
+      headerName: "Actions",
       width: 230,
       renderCell: () => {
         return (
           <Stack direction="row" spacing={2}>
-            <Button variant="outlined" color="info">
-              view
-            </Button>
-            <Button variant="outlined" color="error" startIcon={<DeleteIcon />}>
-              delete
-            </Button>
+            <IconButton
+              aria-label="view"
+              onClick={() => navigate("/users/test")}
+            >
+              <VisibilityIcon />
+            </IconButton>
+            <IconButton>
+              <DeleteIcon />
+            </IconButton>
           </Stack>
         );
       },

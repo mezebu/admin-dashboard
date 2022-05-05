@@ -1,5 +1,6 @@
-import { Box, Drawer } from "@mui/material";
 import React from "react";
+import { Box, Drawer } from "@mui/material";
+
 import { drawer } from "./SidebarItems";
 
 const SideNav = ({ drawerWidth, mobileOpen, drawerToggle }) => {

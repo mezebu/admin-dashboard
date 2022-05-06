@@ -1,68 +1,90 @@
-import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
 
-import { Box, CssBaseline, ThemeProvider, Toolbar } from "@mui/material";
 import { Home, List, Login, New, Single } from "./Pages";
-import SideNav from "./components/SideNav/SideNav";
 import { formInputs, products } from "./formInputs";
-import Appbar from "./components/Appbar/Appbar";
-import { useThemeContext } from "./ThemeContext";
-import { darkMode } from "./styles";
-
-const drawerWidth = 240;
+import { useThemeContext } from "./contexts/ThemeContext";
+import { darkMode, lightMode } from "./styles";
+import Product from "./Pages/Product/Product";
 
 function App() {
   const darkTheme = useThemeContext();
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const currentUser = false;
 
-  const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
+  const RequireAuth = ({ children }) => {
+    return currentUser ? children : <Navigate to="/login" />;
   };
 
   return (
-    <ThemeProvider theme={darkTheme ? darkMode : ""}>
+    <ThemeProvider theme={darkTheme ? darkMode : lightMode}>
       <BrowserRouter>
-        <Box sx={{ display: { sm: "flex" } }}>
-          <CssBaseline />
-          <Appbar drawerToggle={handleDrawerToggle} drawerWidth={drawerWidth} />
-          <SideNav
-            drawerWidth={drawerWidth}
-            mobileOpen={mobileOpen}
-            drawerToggle={handleDrawerToggle}
-          />
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              p: 3,
-              width: { sm: `calc(100% - ${drawerWidth}px)` },
-            }}
-          >
-            <Toolbar />
-            <Routes>
-              <Route path="/">
-                <Route index element={<Home />} />
-                <Route path="login" element={<Login />} />
-                <Route path="users">
-                  <Route index element={<List />} />
-                  <Route path=":userId" element={<Single />} />
-                  <Route
-                    path="new"
-                    element={<New inputs={formInputs} title="Add new user" />}
-                  />
-                </Route>
-                <Route path="products">
-                  <Route index element={<List />} />
-                  <Route path=":productId" element={<Single />} />
-                  <Route
-                    path="new"
-                    element={<New inputs={products} title="Add new Product" />}
-                  />
-                </Route>
-              </Route>
-            </Routes>
-          </Box>
-        </Box>
+        <Routes>
+          <Route path="/">
+            <Route path="login" element={<Login />} />
+            <Route
+              index
+              element={
+                <RequireAuth>
+                  <Home />
+                </RequireAuth>
+              }
+            />
+            <Route path="users">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <List />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":userId"
+                element={
+                  <RequireAuth>
+                    {" "}
+                    <Single />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <New inputs={formInputs} title="Add new user" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="products">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <List />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":productId"
+                element={
+                  <RequireAuth>
+                    <Product />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="new"
+                element={
+                  <RequireAuth>
+                    <New inputs={products} title="Add new Product" />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+          </Route>
+        </Routes>
       </BrowserRouter>
     </ThemeProvider>
   );

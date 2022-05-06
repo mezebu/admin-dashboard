@@ -6,7 +6,8 @@ import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import BrightnessHighIcon from "@mui/icons-material/BrightnessHigh";
-import { Avatar, Badge, Box, IconButton, ThemeProvider } from "@mui/material";
+import { Avatar, Badge, Box, IconButton } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
 import {
   Search,
   SearchIconWrapper,
@@ -15,13 +16,17 @@ import {
   ElevationScroll,
 } from "./styles";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useThemeContext, useThemeUpdate } from "../../ThemeContext";
+import { useThemeContext, useThemeUpdate } from "../../contexts/ThemeContext";
 
 const Appbar = ({ drawerToggle, drawerWidth }) => {
   const themeHandler = useThemeUpdate();
   const darkTheme = useThemeContext();
   const themeToggle = darkTheme ? darkMode : "";
-  const icon = darkTheme ? <BrightnessHighIcon /> : <Brightness4Icon />;
+  const icon = darkTheme ? (
+    <BrightnessHighIcon fontSize="medium" color="primary" />
+  ) : (
+    <Brightness4Icon fontSize="medium" color="info" />
+  );
 
   return (
     <ThemeProvider theme={themeToggle}>

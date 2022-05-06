@@ -120,9 +120,11 @@ const CardWidgets = ({ type }) => {
                 justifyContent: "space-between",
               }}
             >
-              <KeyboardArrowUpIcon />
+              <KeyboardArrowUpIcon color="success" />
 
-              <Typography component="div">{difference}%</Typography>
+              <Typography sx={{ color: "green" }} component="div">
+                {difference}%
+              </Typography>
             </Box>
             <Box>{data.icon}</Box>
           </Box>

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
@@ -25,7 +25,7 @@ const userRows = [
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
 
-    status: "Active",
+    status: "Online",
     email: "Sincere@april.biz",
     age: 62,
   },
@@ -36,7 +36,7 @@ const userRows = [
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
 
-    status: "Pending",
+    status: "Offline",
     age: 44,
     email: "Shanna@melissa.tv",
   },
@@ -47,7 +47,7 @@ const userRows = [
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
 
-    status: "Pending",
+    status: "Offline",
     age: 27,
     email: "Nathan@yesenia.net",
   },
@@ -58,7 +58,7 @@ const userRows = [
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
 
-    status: "Active",
+    status: "Online",
     age: 24,
     email: "Julianne.OConner@kory.org",
   },
@@ -69,7 +69,7 @@ const userRows = [
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
 
-    status: "Active",
+    status: "Online",
     age: 30,
     email: "Lucio_Hettinger@annie.ca",
   },
@@ -172,7 +172,7 @@ function EnhancedTableHead(props) {
             sortDirection={orderBy === headCell.id ? order : false}
           >
             <TableSortLabel
-              active={orderBy === headCell.id}
+              Online={orderBy === headCell.id}
               direction={orderBy === headCell.id ? order : "asc"}
               onClick={createSortHandler(headCell.id)}
             >
@@ -231,17 +231,14 @@ const EnhancedTableToolbar = ({ numSelected }) => {
           id="tableTitle"
           component="div"
         >
-          Add New User
+          Users
         </Typography>
       )}
 
       {numSelected > 0 ? (
         <>
-          <Tooltip title="new user">
-            <IconButton
-              aria-label="view"
-              onClick={() => navigate("/users/new")}
-            >
+          <Tooltip title="View User Profile">
+            <IconButton aria-label="view" onClick={() => navigate("/users/id")}>
               <VisibilityIcon />
             </IconButton>
           </Tooltip>

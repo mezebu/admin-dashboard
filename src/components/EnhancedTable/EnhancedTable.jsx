@@ -10,6 +10,7 @@ import {
   TableContainer,
   TablePagination,
   TableRow,
+  Typography,
 } from "@mui/material";
 
 import {
@@ -19,6 +20,7 @@ import {
   stableSort,
   getComparator,
 } from "./data";
+import styles from "./styles.module.css";
 
 const EnhancedTable = () => {
   const [order, setOrder] = useState("asc");
@@ -79,7 +81,7 @@ const EnhancedTable = () => {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Paper sx={{ width: "100%", mb: 2 }}>
+      <Paper elevation={0} sx={{ width: "100%", mb: 2 }}>
         <EnhancedTableToolbar numSelected={selected.length} />
         <TableContainer>
           <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
@@ -133,7 +135,11 @@ const EnhancedTable = () => {
 
                       <TableCell align="left">{name}</TableCell>
                       <TableCell align="left">{age}</TableCell>
-                      <TableCell align="left">{status}</TableCell>
+                      <TableCell align="left">
+                        <Typography className={styles[status]}>
+                          {status}
+                        </Typography>
+                      </TableCell>
                     </TableRow>
                   );
                 })}

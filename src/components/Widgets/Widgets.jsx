@@ -45,16 +45,16 @@ const Widgets = () => {
       <Divider sx={{ mt: 2, mb: 5 }} />
 
       <Grid container spacing={2}>
-        <Grid item xs={6} sm={6} md={6} lg={3}>
+        <Grid item xs={12} sm={6} md={6} lg={3}>
           <CardWidgets type="user" />
         </Grid>
-        <Grid item xs={6} sm={6} md={6} lg={3}>
+        <Grid item xs={12} sm={6} md={6} lg={3}>
           <CardWidgets type="order" />
         </Grid>
-        <Grid item xs={6} sm={6} md={6} lg={3}>
+        <Grid item xs={12} sm={6} md={6} lg={3}>
           <CardWidgets type="earnings" />
         </Grid>
-        <Grid item xs={6} sm={6} md={6} lg={3}>
+        <Grid item xs={12} sm={6} md={6} lg={3}>
           <CardWidgets type="balance" />
         </Grid>
       </Grid>

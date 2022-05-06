@@ -9,7 +9,7 @@ import TableRow from "@mui/material/TableRow";
 import { Avatar, Box, Typography, Paper } from "@mui/material";
 import { rows } from "./data";
 
-import "./styles.css";
+import styles from "./styles.module.css";
 
 const TableList = () => {
   return (
@@ -45,7 +45,9 @@ const TableList = () => {
                 <TableCell align="center">{product}</TableCell>
                 <TableCell align="center">{amount}</TableCell>
                 <TableCell align="center">{method}</TableCell>
-                <TableCell align="center">{status}</TableCell>
+                <TableCell align="center">
+                  <Typography className={styles[status]}>{status}</Typography>
+                </TableCell>
               </TableRow>
             )
           )}

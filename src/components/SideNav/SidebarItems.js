@@ -25,61 +25,55 @@ const drawerLinks = [
     id: uuidv4(),
 
     title: "Products",
-    link: "/proucts",
+    link: "/products",
   },
   {
     id: uuidv4(),
 
     title: "Orders",
-    link: "/",
+    link: "/orders",
   },
   {
     id: uuidv4(),
 
     title: "Delivery",
-    link: "/users",
+    link: "/delivery",
   },
   {
     id: uuidv4(),
 
     title: "Stats",
-    link: "/",
-  },
-  {
-    id: uuidv4(),
-
-    title: "Notification",
-    link: "/users",
+    link: "/stats",
   },
   {
     id: uuidv4(),
 
     title: "System",
-    link: "/users",
+    link: "/system",
   },
   {
     id: uuidv4(),
 
     title: "Logs",
-    link: "/users",
+    link: "/logs",
   },
   {
     id: uuidv4(),
 
     title: "Settings",
-    link: "/users",
+    link: "/settings",
   },
   {
     id: uuidv4(),
 
     title: "Profile",
-    link: "/users",
+    link: "/users/23",
   },
   {
     id: uuidv4(),
 
     title: "Logout",
-    link: "/users",
+    link: "/logout",
   },
 ];
 

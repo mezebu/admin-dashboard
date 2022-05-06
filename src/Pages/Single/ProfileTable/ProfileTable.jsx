@@ -21,9 +21,9 @@ const rows = [
 
 const ProfileTable = () => {
   return (
-    <TableContainer sx={{ mt: 3 }} component={Paper}>
+    <TableContainer elevation={0} sx={{ mt: 3 }} component={Paper}>
       <Box sx={{ pl: 2, pt: 2 }}>
-        <Typography variant="h6">Products</Typography>
+        <Typography variant="h6">Last Products Purchased</Typography>
       </Box>
       <Table aria-label="simple table">
         <TableHead>

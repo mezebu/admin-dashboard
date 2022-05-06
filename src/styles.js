@@ -18,4 +18,17 @@ const darkMode = createTheme({
     fontFamily: ["Quicksand"].join(","),
   },
 });
-export { theme, darkMode };
+
+const lightMode = createTheme({
+  palette: {
+    mode: "light",
+    background: {
+      paper: "#fff",
+      default: "rgb(244, 245, 250)",
+    },
+  },
+  typography: {
+    fontFamily: ["Quicksand"].join(","),
+  },
+});
+export { theme, darkMode, lightMode };

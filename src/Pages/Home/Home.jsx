@@ -1,8 +1,8 @@
+import { useState } from "react";
 import { Box, CssBaseline, Toolbar } from "@mui/material";
 
 import Widgets from "../../components/Widgets/Widgets";
 import Charts from "../../components/Charts/Charts";
-import { useState } from "react";
 import Appbar from "../../components/Appbar/Appbar";
 import SideNav from "../../components/SideNav/SideNav";
 

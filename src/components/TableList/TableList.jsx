@@ -6,7 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-import { Avatar, Box, Typography, Paper } from "@mui/material";
+import { Avatar, Typography, Paper } from "@mui/material";
 import { rows } from "./data";
 
 import styles from "./styles.module.css";
@@ -23,11 +23,7 @@ const TableList = () => {
             <TableCell align="center">Product</TableCell>
             <TableCell align="center">Amount</TableCell>
             <TableCell align="center">Payment Method</TableCell>
-            <TableCell align="center">
-              <Box>
-                <Typography>Status</Typography>
-              </Box>
-            </TableCell>
+            <TableCell align="center">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

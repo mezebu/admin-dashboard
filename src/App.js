@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -7,10 +7,11 @@ import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { darkMode, lightMode } from "./styles";
 import Product from "./Pages/Product/Product";
+import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
   const darkTheme = useThemeContext();
-  const currentUser = false;
+  const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;

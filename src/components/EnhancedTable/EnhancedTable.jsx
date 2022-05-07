@@ -1,171 +1,94 @@
-import React, { useState } from "react";
-import {
-  Avatar,
-  Box,
-  Checkbox,
-  Paper,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TablePagination,
-  TableRow,
-  Typography,
-} from "@mui/material";
+import React, { useEffect, useState } from "react";
+import { Avatar, Box, IconButton, Paper } from "@mui/material";
+import { Table, TableBody, TableCell, TableContainer } from "@mui/material";
+import { TableHead, TableRow, Tooltip, Typography } from "@mui/material";
+import { collection, getDocs } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import DeleteIcon from "@mui/icons-material/Delete";
 
-import {
-  userRows,
-  EnhancedTableToolbar,
-  EnhancedTableHead,
-  stableSort,
-  getComparator,
-} from "./data";
 import styles from "./styles.module.css";
+import { db } from "../../firebase";
 
 const EnhancedTable = () => {
-  const [order, setOrder] = useState("asc");
-  const [orderBy, setOrderBy] = useState("calories");
-  const [selected, setSelected] = useState([]);
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(5);
+  const navigate = useNavigate();
+  const [data, setData] = useState([]);
 
-  const handleRequestSort = (event, property) => {
-    const isAsc = orderBy === property && order === "asc";
-    setOrder(isAsc ? "desc" : "asc");
-    setOrderBy(property);
+  useEffect(() => {
+    const fetchData = async () => {
+      let items = [];
+      try {
+        const querySnapshot = await getDocs(collection(db, "users"));
+        querySnapshot.forEach((doc) => {
+          items.push({ id: doc.id, ...doc.data() });
+        });
+        setData(items);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
+
+  const deleteHandler = (id) => {
+    const filter = data.filter((user) => user.id !== id);
+    setData(filter);
   };
-
-  const handleSelectAllClick = (event) => {
-    if (event.target.checked) {
-      const newSelecteds = userRows.map((n) => n.name);
-      setSelected(newSelecteds);
-      return;
-    }
-    setSelected([]);
-  };
-
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
-    let newSelected = [];
-
-    if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
-    } else if (selectedIndex === 0) {
-      newSelected = newSelected.concat(selected.slice(1));
-    } else if (selectedIndex === selected.length - 1) {
-      newSelected = newSelected.concat(selected.slice(0, -1));
-    } else if (selectedIndex > 0) {
-      newSelected = newSelected.concat(
-        selected.slice(0, selectedIndex),
-        selected.slice(selectedIndex + 1)
-      );
-    }
-
-    setSelected(newSelected);
-  };
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
-  const isSelected = (name) => selected.indexOf(name) !== -1;
-
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - userRows.length) : 0;
 
   return (
-    <Box sx={{ width: "100%" }}>
-      <Paper elevation={0} sx={{ width: "100%", mb: 2 }}>
-        <EnhancedTableToolbar numSelected={selected.length} />
-        <TableContainer>
-          <Table sx={{ minWidth: 750 }} aria-labelledby="tableTitle">
-            <EnhancedTableHead
-              numSelected={selected.length}
-              order={order}
-              orderBy={orderBy}
-              onSelectAllClick={handleSelectAllClick}
-              onRequestSort={handleRequestSort}
-              rowCount={userRows.length}
-            />
-            <TableBody>
-              {/* if you don't need to support IE11, you can replace the `stableSort` call with:
-                 rows.slice().sort(getComparator(order, orderBy)) */}
-              {stableSort(userRows, getComparator(order, orderBy))
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map(({ name, age, status, image, id }, index) => {
-                  const isItemSelected = isSelected(name);
-                  const labelId = `enhanced-table-checkbox-${index}`;
-
-                  return (
-                    <TableRow
-                      hover
-                      onClick={(event) => handleClick(event, name)}
-                      role="checkbox"
-                      aria-checked={isItemSelected}
-                      tabIndex={-1}
-                      key={name}
-                      selected={isItemSelected}
-                    >
-                      <TableCell padding="checkbox">
-                        <Checkbox
-                          color="primary"
-                          checked={isItemSelected}
-                          inputProps={{
-                            "aria-labelledby": labelId,
-                          }}
-                        />
-                      </TableCell>
-                      <TableCell
-                        component="th"
-                        id={labelId}
-                        scope="row"
-                        padding="none"
+    <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>ID</TableCell>
+            <TableCell align="left">Avatar</TableCell>
+            <TableCell align="center">Name</TableCell>
+            <TableCell align="center">Username</TableCell>
+            <TableCell align="center">Country</TableCell>
+            <TableCell align="center">Email</TableCell>
+            <TableCell align="center">Actions</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {data.map(
+            ({ status, id, nameSurname, username, email, country, img }) => (
+              <TableRow
+                key={id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {id}
+                </TableCell>
+                <TableCell align="left">
+                  <Avatar src={img} alt="user-avatar" />
+                </TableCell>
+                <TableCell align="center">{nameSurname}</TableCell>
+                <TableCell align="center">{username}</TableCell>
+                <TableCell align="center">{country}</TableCell>
+                <TableCell align="center">{email}</TableCell>
+                <TableCell align="right">
+                  <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                    <Tooltip title="View User">
+                      <IconButton
+                        aria-label="view"
+                        onClick={() => navigate("/users/13")}
                       >
-                        {id}
-                      </TableCell>
-                      <TableCell align="left">
-                        <Avatar src={image} />
-                      </TableCell>
-
-                      <TableCell align="left">{name}</TableCell>
-                      <TableCell align="left">{age}</TableCell>
-                      <TableCell align="left">
-                        <Typography className={styles[status]}>
-                          {status}
-                        </Typography>
-                      </TableCell>
-                    </TableRow>
-                  );
-                })}
-              {emptyRows > 0 && (
-                <TableRow
-                  style={{
-                    height: 53 * emptyRows,
-                  }}
-                >
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
-            </TableBody>
-          </Table>
-        </TableContainer>
-        <TablePagination
-          rowsPerPageOptions={[5, 10, 25]}
-          component="div"
-          count={userRows.length}
-          rowsPerPage={rowsPerPage}
-          page={page}
-          onPageChange={handleChangePage}
-          onRowsPerPageChange={handleChangeRowsPerPage}
-        />
-      </Paper>
-    </Box>
+                        <VisibilityIcon />
+                      </IconButton>
+                    </Tooltip>
+                    <Tooltip title="Delete">
+                      <IconButton onClick={() => deleteHandler(id)}>
+                        <DeleteIcon />
+                      </IconButton>
+                    </Tooltip>
+                  </Box>
+                </TableCell>
+              </TableRow>
+            )
+          )}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 

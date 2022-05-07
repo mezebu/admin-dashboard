@@ -1,33 +1,33 @@
 import { v4 as uuidv4 } from "uuid";
 
 const formInputs = [
-  { id: uuidv4(), type: "text", label: "Username", placeholder: "John" },
+  { id: "username", type: "text", label: "Username", placeholder: "John" },
   {
-    id: uuidv4(),
+    id: "nameSurname",
     type: "text",
     label: "Name and Surname",
     placeholder: "John Doe",
   },
   {
-    id: uuidv4(),
+    id: "email",
     type: "mail",
     label: "Email",
     placeholder: "johndoe@mail.com",
   },
-  { id: uuidv4(), type: "text", label: "Phone", placeholder: "+123-456-789" },
+  { id: "phone", type: "text", label: "Phone", placeholder: "+123-456-789" },
   {
-    id: uuidv4(),
+    id: "password",
     type: "password",
     label: "Password",
     placeholder: "Enter Password",
   },
   {
-    id: uuidv4(),
+    id: "address",
     type: "text",
     label: "Address",
     placeholder: "102, Yaba Lagos",
   },
-  { id: uuidv4(), type: "text", label: "Country", placeholder: "Nigeria" },
+  { id: "country", type: "text", label: "Country", placeholder: "Nigeria" },
 ];
 
 const products = [

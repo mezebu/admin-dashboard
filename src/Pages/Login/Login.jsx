@@ -1,78 +1,120 @@
-import React from "react";
-import { Box, Typography } from "@mui/material";
+import React, { useContext, useState } from "react";
+import {
+  Avatar,
+  Box,
+  Container,
+  Typography,
+  TextField,
+  FormControlLabel,
+  Checkbox,
+  Button,
+  Grid,
+  Link,
+} from "@mui/material";
+import LockOpenIcon from "@mui/icons-material/LockOpen";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
+import { auth } from "../../firebase";
 
 const Login = () => {
+  const [error, setError] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const { dispatch } = useContext(AuthContext);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        dispatch({ type: "LOGIN", payload: user });
+        navigate("/");
+      })
+      .catch((error) => {
+        setError(error.message);
+        // ..
+      });
+  };
+
   return (
-    <Box component="div">
-      <Typography>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-        dolorum doloribus mollitia sint repellat ipsam tempora itaque quis
-        distinctio, dolorem nostrum, rem totam maiores? Commodi pariatur sequi
-        ex ducimus quas! Magnam pariatur illo consectetur tempore, nulla
-        incidunt voluptatem expedita a eum laborum quas maxime debitis delectus
-        minima tempora temporibus vel! Sequi alias fugiat quo et, fuga deserunt
-        repellendus quod nesciunt? Aliquid in velit minus, magnam quasi
-        officiis, commodi cumque animi tenetur sit odio facere. Ab deleniti
-        possimus ex, beatae, id quia perferendis totam facere consectetur
-        voluptate labore, ut porro ducimus. Eveniet optio rerum minus, error
-        perspiciatis, aliquam similique deleniti praesentium esse corrupti
-        doloremque suscipit quidem sequi. Harum quam illo modi, iure inventore,
-        id, cum nisi vero nemo ipsam quod magnam? Iste dolore quod corporis
-        eligendi. Tempora velit optio reprehenderit id praesentium architecto
-        obcaecati eos quas? Laudantium, est excepturi iste iusto similique
-        sapiente iure aliquam error fuga nihil at corrupti suscipit? Obcaecati
-        modi deserunt ipsum voluptas in voluptatibus vitae cum ut doloremque
-        voluptatum dolores sit sint eaque placeat laudantium iste, labore
-        temporibus aperiam? Ad dolore nisi beatae voluptatem tenetur aspernatur
-        quo? Magnam architecto, debitis odio officiis placeat nobis eligendi
-        voluptates a aspernatur natus ut molestiae dolor recusandae, fugit
-        molestias corrupti, minima totam voluptate dolorem quidem eos sunt
-        veniam nostrum mollitia! Harum. Doloremque sit sequi nesciunt similique
-        distinctio praesentium, reprehenderit quidem? Laudantium aliquid
-        cupiditate perspiciatis odio vel asperiores, placeat dignissimos, quod
-        impedit voluptate eaque voluptatibus fugiat! Tempora minus odit possimus
-        hic repellendus? Non minima velit tempora molestias repellendus quas
-        esse quibusdam quasi, fuga praesentium magni itaque omnis enim dolor
-        aliquam, perferendis numquam dolorem pariatur animi recusandae delectus
-        vero sequi iste perspiciatis! Explicabo? Vel a minima, maiores aperiam
-        facilis minus eligendi nesciunt dicta sequi vitae dolor distinctio
-        dolorum tenetur asperiores omnis. Officiis iste eius natus culpa quae.
-        Beatae omnis fuga dolorem sit delectus. Quia quam ad obcaecati minus
-        laudantium eveniet nisi veniam, odio velit cum. Possimus, vero, facilis
-        aut cupiditate repellat, velit asperiores tenetur voluptates eaque
-        laboriosam pariatur odio dolore voluptas ipsum cumque! Vero aut pariatur
-        rerum excepturi ducimus tempora necessitatibus reprehenderit corporis.
-        Labore quisquam quae vero, harum rem porro ab corrupti pariatur iure
-        quas, consectetur delectus, voluptas cupiditate? Molestias atque harum
-        architecto! Sit magni, ut at, quo voluptates sint, quod dolor debitis
-        eum quas recusandae pariatur deleniti cumque perspiciatis porro a. Porro
-        eaque quam distinctio cumque aperiam beatae possimus voluptate ex iste!
-        Dolor optio voluptatibus quam dolorem ullam cumque corrupti ipsa
-        inventore vitae dolores iste obcaecati et, quibusdam, nisi voluptas sunt
-        hic, in id consectetur? Explicabo saepe quis nulla tempora, enim
-        voluptatibus? Debitis soluta fugiat aut. Nostrum optio praesentium ipsum
-        soluta sequi, laboriosam dolorem minima quasi odit labore saepe, iure
-        inventore nisi. Ipsa natus voluptatem modi quidem velit explicabo
-        molestiae illum veritatis. Consequuntur totam, harum earum eveniet
-        expedita nobis dolores voluptatem recusandae illum? Autem voluptatibus
-        provident consequatur id facere quam maiores vero? Provident nisi
-        praesentium, officia neque dolor labore cum in beatae? Necessitatibus,
-        magni. Sit, adipisci voluptates temporibus maiores, obcaecati cumque
-        repellat facilis aut perferendis consectetur maxime ducimus recusandae
-        impedit modi aliquid officia dolore magni molestias, fugiat explicabo
-        vitae corporis iure doloribus! Maxime accusamus, saepe assumenda
-        exercitationem at pariatur tempore officia laboriosam vel eveniet quod
-        vitae ipsam quaerat consequatur eius aliquam. Eum non tempora placeat
-        ullam, voluptate error debitis libero rem nulla? Molestiae ipsam
-        voluptates nisi dolore? Fugit eaque enim vero reiciendis assumenda.
-        Magnam accusamus animi nobis veniam itaque molestias rem neque eius
-        atque amet, cumque ad pariatur? Neque voluptatum quae quam. Aliquid odit
-        blanditiis recusandae accusantium neque nulla sit aliquam sed adipisci
-        quam maxime excepturi, assumenda, nemo veniam consequatur iusto. Facere
-        blanditiis voluptatum exercitationem magnam perferendis necessitatibus
-        porro non molestias eveniet!
-      </Typography>
-    </Box>
+    <Container component="main" maxWidth="xs">
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
+          <LockOpenIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Login
+        </Typography>
+        <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="Email Address"
+            value={email}
+            autoFocus
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <TextField
+            margin="normal"
+            required
+            fullWidth
+            value={password}
+            label="Password"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Remember me"
+          />
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2, p: 2 }}
+            disableElevation
+          >
+            Sign In
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link underline="hover" href="#" variant="body2">
+                Forgot password?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link underline="hover" href="#" variant="body2">
+                {"Don't have an account? Sign Up"}
+              </Link>
+            </Grid>
+          </Grid>
+          {error && (
+            <Typography
+              align="center"
+              sx={{ color: "error.main", marginTop: 5 }}
+            >
+              {error}
+            </Typography>
+          )}
+        </Box>
+      </Box>
+    </Container>
   );
 };
 

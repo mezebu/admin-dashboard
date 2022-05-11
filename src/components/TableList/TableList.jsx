@@ -1,12 +1,7 @@
 import React from "react";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-
-import { Avatar, Typography, Paper } from "@mui/material";
+// prettier-ignore
+import {Table, TableBody, TableCell, TableRow, Avatar} from "@mui/material/Table";
+import { TableHead, Typography, Paper, TableContainer } from "@mui/material";
 import { rows } from "./data";
 
 import styles from "./styles.module.css";

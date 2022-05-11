@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Avatar, Box, IconButton, Paper } from "@mui/material";
 import { Table, TableBody, TableCell, TableContainer } from "@mui/material";
-import { TableHead, TableRow, Tooltip, Typography } from "@mui/material";
+import { TableHead, TableRow, Tooltip } from "@mui/material";
 import { collection, getDocs } from "firebase/firestore";
 import { useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-import styles from "./styles.module.css";
 import { db } from "../../firebase";
 
 const EnhancedTable = () => {

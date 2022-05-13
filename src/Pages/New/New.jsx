@@ -11,6 +11,7 @@ import { db, auth, storage } from "../../firebase";
 import { Input, SmallAvatar } from "./styles";
 import Appbar from "../../components/Appbar/Appbar";
 import SideNav from "../../components/SideNav/SideNav";
+import { useNavigate } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -19,6 +20,8 @@ const New = ({ inputs, title }) => {
   const [file, setFile] = useState("");
   const [data, setData] = useState({});
   const [imageUpload, setImageUpload] = useState(null);
+
+  const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -44,6 +47,7 @@ const New = ({ inputs, title }) => {
         ...data,
         timeStamp: serverTimestamp(),
       });
+      navigate(-1);
     } catch (error) {
       console.log(error);
     }

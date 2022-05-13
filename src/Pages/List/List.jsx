@@ -8,7 +8,7 @@ import {
   CssBaseline,
   Toolbar,
 } from "@mui/material";
-import EnhancedTable from "../../components/EnhancedTable/EnhancedTable";
+import UsersTable from "../../components/UsersTable/UsersTable";
 import { useNavigate } from "react-router-dom";
 
 import Appbar from "../../components/Appbar/Appbar";
@@ -73,7 +73,7 @@ const List = () => {
             </Grid>
           </Grid>
           <Divider sx={{ mt: 2, mb: 5 }} />
-          <EnhancedTable />
+          <UsersTable />
         </Box>
       </Box>
     </Box>

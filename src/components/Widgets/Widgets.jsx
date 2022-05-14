@@ -16,7 +16,7 @@ const Widgets = () => {
               Dashboard
             </Typography>
             <Typography fontWeight={500} marginBottom={3}>
-              Welcome back, user! We've missed you.👋
+              Welcome back! We've missed you.👋
             </Typography>
           </Box>
         </Grid>

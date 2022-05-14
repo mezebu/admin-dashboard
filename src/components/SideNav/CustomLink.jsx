@@ -1,18 +1,19 @@
 import React from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import { green } from "@mui/material/colors";
-import { Box } from "@mui/material";
-import { StyledListItemButton } from "./styles";
+import { Box, ListItemButton, styled } from "@mui/material";
 
 const CustomLink = ({ children, to, ...props }) => {
   let resolved = useResolvedPath(to);
   let match = useMatch({ path: resolved.pathname, end: true });
-  const icon = match ? (
-    <FiberManualRecordIcon sx={{ color: green[500], fontSize: 15 }} />
-  ) : (
-    <FiberManualRecordIcon sx={{ fontSize: 10 }} />
-  );
+  const StyledListItemButton = styled(ListItemButton)(({ theme }) => ({
+    color: match ? green[500] : "",
+    borderRadius: theme.shape.borderRadius,
+    "&.Mui-hover": {
+      borderRadius: theme.shape.borderRadius,
+    },
+  }));
+
   return (
     <Box
       sx={{
@@ -28,10 +29,7 @@ const CustomLink = ({ children, to, ...props }) => {
           color: match ? "rgb(34,139,34)" : "grey",
         }}
       >
-        <StyledListItemButton>
-          {icon}
-          {children}
-        </StyledListItemButton>
+        <StyledListItemButton>{children}</StyledListItemButton>
       </Link>
     </Box>
   );

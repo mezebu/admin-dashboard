@@ -1,5 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
-import { Divider, List, ListItem, ListItemText } from "@mui/material";
+import {
+  Divider,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+} from "@mui/material";
 import {
   StyledSidebar,
   BottomSecton,
@@ -8,36 +14,35 @@ import {
   TopSection,
 } from "./styles";
 import CustomLink from "./CustomLink";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import PersonIcon from "@mui/icons-material/Person";
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
+import CategoryIcon from "@mui/icons-material/Category";
 
 const drawerLinks = [
   {
     id: uuidv4(),
     title: "Dashboard",
     link: "/",
+    icon: <DashboardIcon />,
   },
   {
     id: uuidv4(),
-
+    icon: <PersonIcon />,
     title: "Users",
     link: "/users",
   },
   {
     id: uuidv4(),
-
+    icon: <CategoryIcon />,
     title: "Products",
     link: "/products",
   },
   {
     id: uuidv4(),
-
+    icon: <ProductionQuantityLimitsIcon />,
     title: "Orders",
     link: "/orders",
-  },
-  {
-    id: uuidv4(),
-
-    title: "Delivery",
-    link: "/delivery",
   },
   {
     id: uuidv4(),
@@ -84,11 +89,12 @@ const drawer = (
     </TopSection>
     <Divider variant="middle" />
     <Center>
-      {drawerLinks.map(({ id, title, link }) => (
+      {drawerLinks.map(({ id, title, link, icon }) => (
         <List key={id} sx={{ mt: 0.2 }} disablePadding>
           <CustomLink to={link}>
             <ListItem disablePadding>
-              <ListItemText sx={{ ml: 1 }} primary={title} />
+              <ListItemIcon>{icon}</ListItemIcon>
+              <ListItemText primary={title} />
             </ListItem>
           </CustomLink>
         </List>

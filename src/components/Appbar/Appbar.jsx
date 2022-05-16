@@ -17,11 +17,12 @@ import {
 } from "./styles";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useThemeContext, useThemeUpdate } from "../../contexts/ThemeContext";
+import { lightMode } from "../../styles";
 
 const Appbar = ({ drawerToggle, drawerWidth }) => {
   const themeHandler = useThemeUpdate();
   const darkTheme = useThemeContext();
-  const themeToggle = darkTheme ? darkMode : "";
+  const themeToggle = darkTheme ? darkMode : lightMode;
   const icon = darkTheme ? (
     <BrightnessHighIcon fontSize="medium" color="primary" />
   ) : (

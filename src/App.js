@@ -11,6 +11,7 @@ import { AuthContext } from "./contexts/AuthContext";
 
 function App() {
   const darkTheme = useThemeContext();
+  const switchTheme = darkTheme ? darkMode : lightMode;
   const { currentUser } = useContext(AuthContext);
 
   const RequireAuth = ({ children }) => {
@@ -18,7 +19,7 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={darkTheme ? darkMode : lightMode}>
+    <ThemeProvider theme={switchTheme}>
       <BrowserRouter>
         <Routes>
           <Route path="/">

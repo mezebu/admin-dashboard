@@ -46,52 +46,47 @@ const UsersTable = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell>ID</TableCell>
             <TableCell align="left">Avatar</TableCell>
-            <TableCell align="center">Name</TableCell>
+            <TableCell align="left">Name</TableCell>
             <TableCell align="center">Username</TableCell>
             <TableCell align="center">Country</TableCell>
             <TableCell align="center">Email</TableCell>
-            <TableCell align="center">Actions</TableCell>
+            <TableCell align="left">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map(
-            ({ status, id, nameSurname, username, email, country, img }) => (
-              <TableRow
-                key={id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {id}
-                </TableCell>
-                <TableCell align="left">
-                  <Avatar src={img} alt="user-avatar" />
-                </TableCell>
-                <TableCell align="center">{nameSurname}</TableCell>
-                <TableCell align="center">{username}</TableCell>
-                <TableCell align="center">{country}</TableCell>
-                <TableCell align="center">{email}</TableCell>
-                <TableCell align="right">
-                  <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                    <Tooltip title="View User">
-                      <IconButton
-                        aria-label="view"
-                        onClick={() => navigate("/users/13")}
-                      >
-                        <VisibilityIcon />
-                      </IconButton>
-                    </Tooltip>
-                    <Tooltip title="Delete">
-                      <IconButton onClick={() => deleteHandler(id)}>
-                        <DeleteIcon />
-                      </IconButton>
-                    </Tooltip>
-                  </Box>
-                </TableCell>
-              </TableRow>
-            )
-          )}
+          {data.map(({ id, nameSurname, username, email, country, img }) => (
+            <TableRow
+              key={id}
+              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                <Avatar src={img} alt="user-avatar" />
+              </TableCell>
+
+              <TableCell align="left">{nameSurname}</TableCell>
+              <TableCell align="center">{username}</TableCell>
+              <TableCell align="center">{country}</TableCell>
+              <TableCell align="center">{email}</TableCell>
+              <TableCell align="right">
+                <Box sx={{ display: "flex", alignItems: "flex-end" }}>
+                  <Tooltip title="View User">
+                    <IconButton
+                      aria-label="view"
+                      onClick={() => navigate("/users/13")}
+                    >
+                      <VisibilityIcon />
+                    </IconButton>
+                  </Tooltip>
+                  <Tooltip title="Delete">
+                    <IconButton onClick={() => deleteHandler(id)}>
+                      <DeleteIcon />
+                    </IconButton>
+                  </Tooltip>
+                </Box>
+              </TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

@@ -1,5 +1,5 @@
-import { alpha, InputBase, styled, useScrollTrigger } from "@mui/material";
-import { createTheme } from "@mui/material/styles";
+import { alpha, InputBase, useScrollTrigger } from "@mui/material";
+import { createTheme, styled } from "@mui/material/styles";
 import { cloneElement } from "react";
 
 const Search = styled("div")(({ theme }) => ({
@@ -66,10 +66,20 @@ const darkMode = createTheme({
   },
 });
 
+const lightMode = createTheme({
+  palette: {
+    mode: "light",
+    background: {
+      paper: "rgb(27, 38, 53)",
+    },
+  },
+});
+
 export {
   Search,
   ElevationScroll,
   SearchIconWrapper,
   StyledInputBase,
   darkMode,
+  lightMode,
 };

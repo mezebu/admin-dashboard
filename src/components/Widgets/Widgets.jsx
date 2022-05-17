@@ -1,7 +1,7 @@
+import React from "react";
 import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import * as dayjs from "dayjs";
 
-import React from "react";
 import CardWidgets from "./CardWidgets/CardWidgets";
 
 const Widgets = () => {

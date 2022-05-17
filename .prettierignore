@@ -1,0 +1,6 @@
+# Ignore artifacts:
+build
+coverage
+
+# Ignore App.js files:
+/src/App.js

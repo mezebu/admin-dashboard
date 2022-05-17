@@ -18,6 +18,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
 import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 import CategoryIcon from "@mui/icons-material/Category";
+import InsightsIcon from "@mui/icons-material/Insights";
 
 const drawerLinks = [
   {
@@ -46,9 +47,9 @@ const drawerLinks = [
   },
   {
     id: uuidv4(),
-
-    title: "Stats",
-    link: "/stats",
+    icon: <InsightsIcon />,
+    title: "Analytics",
+    link: "/users/analytics",
   },
   {
     id: uuidv4(),

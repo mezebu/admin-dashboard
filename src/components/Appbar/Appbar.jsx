@@ -1,13 +1,16 @@
 import React from "react";
 import MailIcon from "@mui/icons-material/Mail";
 import SearchIcon from "@mui/icons-material/Search";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import BrightnessHighIcon from "@mui/icons-material/BrightnessHigh";
 import { Avatar, Badge, Box, IconButton } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
+import MenuIcon from "@mui/icons-material/Menu";
+
+import { useThemeContext, useThemeUpdate } from "../../contexts/ThemeContext";
+import { lightMode } from "../../styles";
 import {
   Search,
   SearchIconWrapper,
@@ -15,9 +18,7 @@ import {
   darkMode,
   ElevationScroll,
 } from "./styles";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useThemeContext, useThemeUpdate } from "../../contexts/ThemeContext";
-import { lightMode } from "../../styles";
+import Notifications from "../NotificationButton/Notifications";
 
 const Appbar = ({ drawerToggle, drawerWidth }) => {
   const themeHandler = useThemeUpdate();
@@ -73,15 +74,7 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
                   <MailIcon />
                 </Badge>
               </IconButton>
-              <IconButton
-                size="large"
-                aria-label="show 17 new notifications"
-                color="inherit"
-              >
-                <Badge badgeContent={17} color="error">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
+              <Notifications />
               <IconButton
                 size="large"
                 edge="end"

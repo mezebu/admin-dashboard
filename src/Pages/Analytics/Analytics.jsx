@@ -36,7 +36,8 @@ const Analytics = () => {
             Hi, Welcome back!
           </Typography>
 
-          <Grid container spacing={2}>
+          <Toolbar />
+          <Grid container spacing={3}>
             <Grid item xs={12} sm={6} md={6} lg={3}>
               <AnalyticsCard type="android" />
             </Grid>

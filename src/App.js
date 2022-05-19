@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 
-import { Home, List, Login, New, Single, Analytics } from "./Pages";
+import { Home, List, Login, New, Single, Analytics, News } from "./Pages";
 import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { darkMode, lightMode } from "./styles";
@@ -26,6 +26,7 @@ function App() {
           <Route path="/">
             <Route path="login" element={<Login />} />
             <Route index element={<RequireAuth><Home /></RequireAuth>} />        
+            <Route path="news" element={<RequireAuth><News /></RequireAuth>} />        
             <Route path="users">
               <Route index element={<RequireAuth><List /></RequireAuth>}/>          
               <Route path=":userId" element={<RequireAuth><Single /></RequireAuth>}/>     

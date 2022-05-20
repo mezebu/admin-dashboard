@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Box, CssBaseline, Grid, Toolbar, Typography } from "@mui/material";
+import { Box, CssBaseline, Toolbar, Typography } from "@mui/material";
 import Appbar from "../../components/Appbar/Appbar";
 import SideNav from "../../components/SideNav/SideNav";
-import AnalyticsCard from "./AnalyticsCard/AnalyticsCard";
+import AnalyticsGrid from "./AnalyticsWidget/AnalyticsGrid";
+import UsersAnalytics from "./UsersAnalytics/UsersAnalytics";
 
 const drawerWidth = 240;
 
@@ -37,20 +38,8 @@ const Analytics = () => {
           </Typography>
 
           <Toolbar />
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={6} md={6} lg={3}>
-              <AnalyticsCard type="android" />
-            </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={3}>
-              <AnalyticsCard type="apple" />
-            </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={3}>
-              <AnalyticsCard type="reports" />
-            </Grid>
-            <Grid item xs={12} sm={6} md={6} lg={3}>
-              <AnalyticsCard type="orders" />
-            </Grid>
-          </Grid>
+          <AnalyticsGrid />
+          <UsersAnalytics />
         </Box>
       </Box>
     </Box>

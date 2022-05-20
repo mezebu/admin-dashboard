@@ -10,6 +10,7 @@ import {
   Button,
   Grid,
   Link,
+  Alert,
 } from "@mui/material";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -57,6 +58,12 @@ const Login = () => {
         <Typography component="h1" variant="h5">
           Login
         </Typography>
+        <Box sx={{ width: "100%" }}>
+          <Alert severity="info">
+            Use test@test.com and test12345 to sign in
+          </Alert>
+        </Box>
+
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
           <TextField
             margin="normal"

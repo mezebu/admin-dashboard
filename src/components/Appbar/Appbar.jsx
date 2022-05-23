@@ -17,6 +17,7 @@ import {
   StyledInputBase,
   darkMode,
   ElevationScroll,
+  StyledBadge,
 } from "./styles";
 import Notifications from "../NotificationButton/Notifications";
 
@@ -83,10 +84,16 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
                 color="inherit"
                 sx={{ padding: 0, ml: 2, mr: 3 }}
               >
-                <Avatar
-                  alt="Remy Sharp"
-                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                />
+                <StyledBadge
+                  overlap="circular"
+                  anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+                  variant="dot"
+                >
+                  <Avatar
+                    alt="Remy Sharp"
+                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                  />
+                </StyledBadge>
               </IconButton>
               <IconButton
                 edge="start"

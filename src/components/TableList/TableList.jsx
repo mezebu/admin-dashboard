@@ -4,8 +4,6 @@ import {Table, TableBody, TableCell, TableRow, Avatar} from "@mui/material";
 import { TableHead, Typography, Paper, TableContainer } from "@mui/material";
 import { rows } from "./data";
 
-import styles from "./styles.module.css";
-
 const TableList = () => {
   return (
     <TableContainer component={Paper}>
@@ -37,7 +35,25 @@ const TableList = () => {
                 <TableCell align="center">{amount}</TableCell>
                 <TableCell align="center">{method}</TableCell>
                 <TableCell align="center">
-                  <Typography className={styles[status]}>{status}</Typography>
+                  <Typography
+                    sx={{
+                      fontSize: 13,
+                      fontWeight: 500,
+                      borderRadius: 1,
+                      p: 1,
+                      background:
+                        status === "Approved"
+                          ? "rgba(84, 214, 44, 0.16)"
+                          : "rgba(255, 72, 66, 0.16)",
+
+                      color:
+                        status === "Approved"
+                          ? "rgb(34, 154, 22)"
+                          : "rgb(183, 33, 54)",
+                    }}
+                  >
+                    {status}
+                  </Typography>
                 </TableCell>
               </TableRow>
             )

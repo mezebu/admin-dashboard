@@ -1,4 +1,4 @@
-const rows = [
+const customers = [
   {
     id: 5208977545,
     customer: "Leanne Graham",
@@ -29,8 +29,8 @@ const rows = [
     username: "Karianne",
     image:
       "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    product: "Playstation 4",
-    amount: 499,
+    product: ":aptop",
+    amount: 699,
     company: "Romaguera-Jacobson",
     method: "Online Payment",
     status: "Pending",
@@ -41,8 +41,8 @@ const rows = [
     username: "Samantha",
     image:
       "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
-    product: "Playstation 4",
-    amount: 499,
+    product: "Ferrari",
+    amount: 150000,
     company: "Romaguera-Jacobson",
     method: "Online Payment",
     status: "Approved",
@@ -54,8 +54,8 @@ const rows = [
     username: "Kamren",
     image:
       "https://images.unsplash.com/photo-1485893086445-ed75865251e0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjN8fHJhbmRvbSUyMHBlcnNvbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    product: "Playstation 4",
-    amount: 499,
+    product: "Moët & Chandon",
+    amount: 850,
     company: "Romaguera-Jacobson",
     method: "Online Payment",
     status: "Pending",
@@ -66,12 +66,12 @@ const rows = [
     username: "Leopoldo_Corkery",
     image:
       "https://images.unsplash.com/photo-1507114845806-0347f6150324?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDN8fG1hbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-    product: "Playstation 4",
-    amount: 499,
+    product: "IPhone 13",
+    amount: 799,
     company: "Romaguera-Jacobson",
     method: "Cash on delivery",
     status: "Approved",
   },
 ];
 
-export { rows };
+export { customers };

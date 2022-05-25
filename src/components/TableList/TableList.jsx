@@ -1,26 +1,72 @@
-import React from "react";
+import React, { useState } from "react";
 // prettier-ignore
-import {Table, TableBody, TableCell, TableRow, Avatar} from "@mui/material";
+import {Table, TableBody, TableCell, TableRow, Avatar, Button} from "@mui/material";
 import { TableHead, Typography, Paper, TableContainer } from "@mui/material";
-import { rows } from "./data";
+import SortIcon from "@mui/icons-material/Sort";
+import { customers } from "./data";
 
 const TableList = () => {
+  const [customerArray, setCustomerArray] = useState(customers);
+  const [sortStatus, setSortStatus] = useState(true);
+
+  const handleAmountSort = () => {
+    let data = [...customerArray];
+    if (sortStatus) {
+      const sorted = data.sort((a, b) => a.amount - b.amount);
+      setCustomerArray(sorted);
+      setSortStatus(!sortStatus);
+    } else {
+      const sorted = data.sort((a, b) => b.amount - a.amount);
+      setCustomerArray(sorted);
+      setSortStatus(!sortStatus);
+    }
+  };
+
+  const handleIdSort = () => {
+    let data = [...customerArray];
+    if (sortStatus) {
+      const sorted = data.sort((a, b) => a.id - b.id);
+      setCustomerArray(sorted);
+      setSortStatus(!sortStatus);
+    } else {
+      const sorted = data.sort((a, b) => b.id - a.id);
+      setCustomerArray(sorted);
+      setSortStatus(!sortStatus);
+    }
+  };
+
   return (
     <TableContainer component={Paper}>
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Avatar</TableCell>
-            <TableCell>Tracking ID</TableCell>
+            <TableCell>
+              <Button
+                sx={{ textTransform: "none" }}
+                endIcon={<SortIcon />}
+                onClick={handleIdSort}
+              >
+                Tracking ID
+              </Button>
+            </TableCell>
             <TableCell align="center">Customer</TableCell>
             <TableCell align="center">Product</TableCell>
-            <TableCell align="center">Amount</TableCell>
+            <TableCell align="center">
+              <Button
+                sx={{ textTransform: "none" }}
+                endIcon={<SortIcon />}
+                onClick={handleAmountSort}
+              >
+                Amount
+              </Button>
+            </TableCell>
             <TableCell align="center">Payment Method</TableCell>
             <TableCell align="center">Status</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(
+          {customerArray.map(
             ({ id, customer, product, method, status, amount, image }) => (
               <TableRow
                 key={id}

@@ -4,6 +4,7 @@ import Appbar from "../../components/Appbar/Appbar";
 import SideNav from "../../components/SideNav/SideNav";
 import AnalyticsGrid from "./AnalyticsWidget/AnalyticsGrid";
 import UsersAnalytics from "./UsersAnalytics/UsersAnalytics";
+import AnalyticsCharts from "./AnalyticsCharts/AnalyticsCharts";
 
 const drawerWidth = 240;
 
@@ -39,6 +40,7 @@ const Analytics = () => {
 
           <Toolbar />
           <AnalyticsGrid />
+          <AnalyticsCharts />
           <UsersAnalytics />
         </Box>
       </Box>

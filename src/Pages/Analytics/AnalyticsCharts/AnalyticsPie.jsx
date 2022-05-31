@@ -1,11 +1,11 @@
 import React from "react";
+import { Box, Divider, Tooltip as MuiTooltip, Typography } from "@mui/material";
 import {
-  Box,
-  Divider,
-  Paper,
-  Tooltip as MuiTooltip,
-  Typography,
   Button,
+  Card,
+  CardHeader,
+  IconButton,
+  CardContent,
 } from "@mui/material";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
@@ -35,6 +35,7 @@ const data = {
       borderWidth: 1,
       spacing: 4,
       cutout: "70%",
+      borderRadius: 3,
     },
   ],
 };
@@ -49,29 +50,27 @@ const labelPosition = {
 
 const AnalyticsPie = () => {
   return (
-    <Paper>
-      <Box
-        sx={{
-          paddingTop: 5,
-          paddingBottom: 5,
-          paddingLeft: 2,
-          paddingRight: 2,
-          display: "flex",
-          justifyContent: "space-between",
-        }}
-      >
-        <Typography variant="h6" sx={{ fontWeight: 600 }}>
-          Social media sources
-        </Typography>
-        <MuiTooltip title="Sources from social media">
-          <InfoIcon />
-        </MuiTooltip>
-      </Box>
+    <Card>
+      <CardHeader
+        action={
+          <IconButton>
+            <MuiTooltip title="Sources from social media">
+              <InfoIcon />
+            </MuiTooltip>
+          </IconButton>
+        }
+        title={
+          <Typography variant="h6" sx={{ fontWeight: 600 }}>
+            Social media sources
+          </Typography>
+        }
+      />
       <Divider />
-      <Box sx={{ p: 5 }}>
+      <CardContent sx={{ p: 5 }}>
         <Doughnut data={data} options={labelPosition} />
-      </Box>
+      </CardContent>
       <Divider />
+
       <Box sx={{ p: 3 }}>
         <Button
           sx={{ textTransform: "none" }}
@@ -81,7 +80,7 @@ const AnalyticsPie = () => {
           See all visits
         </Button>
       </Box>
-    </Paper>
+    </Card>
   );
 };
 

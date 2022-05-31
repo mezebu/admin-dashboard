@@ -34,14 +34,13 @@ const AnalyticsTable = () => {
 
   return (
     <TableContainer component={Paper}>
+      <Box>
+        <Typography variant="h5" sx={{ pt: 3, pb: 2, pl: 2, fontWeight: 600 }}>
+          Recent Transactions
+        </Typography>
+      </Box>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <Typography
-            variant="h5"
-            sx={{ pt: 3, pb: 2, pl: 2, fontWeight: 600 }}
-          >
-            Recent Transactions
-          </Typography>
           <TableRow>
             <StyledTableCell>Description</StyledTableCell>
             <StyledTableCell align="center">Date</StyledTableCell>

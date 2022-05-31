@@ -9,14 +9,11 @@ import { StyledCountryTableCell, StyledTableRow } from "./styles";
 const AnalyticsCountries = () => {
   return (
     <TableContainer component={Paper}>
+      <Typography variant="h6" sx={{ pt: 3, pb: 2, pl: 2, fontWeight: 600 }}>
+        Countries
+      </Typography>
       <Table sx={{ minWidth: 300 }} aria-label="customized table">
         <TableHead>
-          <Typography
-            variant="h6"
-            sx={{ pt: 3, pb: 2, pl: 2, fontWeight: 600 }}
-          >
-            Countries
-          </Typography>
           <TableRow>
             <StyledCountryTableCell>Country</StyledCountryTableCell>
             <StyledCountryTableCell align="right">Value</StyledCountryTableCell>
@@ -26,13 +23,15 @@ const AnalyticsCountries = () => {
         <TableBody>
           {countries.map(({ id, flag, country, seo, value }) => (
             <StyledTableRow key={id}>
-              <StyledCountryTableCell component="th" scope="row">
-                <Box sx={{ display: "flex", alignItems: "center" }}>
-                  <img src={flag} alt="flag" width="30" height="24" />
-                  <Typography variant="subtitle2" sx={{ ml: 2 }}>
-                    {country}
-                  </Typography>
-                </Box>
+              <StyledCountryTableCell
+                component="th"
+                scope="row"
+                sx={{ display: "flex", alignItems: "center" }}
+              >
+                <img src={flag} alt="flag" width="30" height="24" />
+                <Typography variant="subtitle2" sx={{ ml: 2 }}>
+                  {country}
+                </Typography>
               </StyledCountryTableCell>
               <StyledCountryTableCell align="right">
                 {value}
@@ -43,16 +42,16 @@ const AnalyticsCountries = () => {
             </StyledTableRow>
           ))}
         </TableBody>
-        <Box sx={{ p: 3 }}>
-          <Button
-            sx={{ textTransform: "none" }}
-            color="secondary"
-            endIcon={<ArrowForwardIcon />}
-          >
-            See more
-          </Button>
-        </Box>
       </Table>
+      <Box sx={{ p: 3 }}>
+        <Button
+          sx={{ textTransform: "none" }}
+          color="secondary"
+          endIcon={<ArrowForwardIcon />}
+        >
+          See more
+        </Button>
+      </Box>
     </TableContainer>
   );
 };

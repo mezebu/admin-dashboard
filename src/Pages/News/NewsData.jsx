@@ -1,73 +1,49 @@
 import React, { useEffect, useState } from "react";
-import { Box, CircularProgress, Grid, TextField } from "@mui/material";
+import { Box, CircularProgress, Grid } from "@mui/material";
 import axios from "axios";
 import NewsItem from "./NewsItem";
+import { Wrapper } from "./styles";
+
+const url = "https://62986369f2decf5bb7410008.mockapi.io/news";
 
 const NewsData = () => {
-  const [query, setQuery] = useState("soccer");
-  const [search, setSearch] = useState("");
-  const [newsItems, setNewsItems] = useState([]);
+  const [data, setData] = useState([]);
+  const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const fetchNewsData = async (e) => {
-    const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=a6c001d8638c4ed1b0c8a191ffafa7a0`;
-
-    try {
-      setLoading(true);
-      setQuery("");
-
-      const { data } = await axios.get(url);
-
-      setNewsItems(data.articles);
-      setLoading(false);
-      setSearch("");
-    } catch (error) {
-      setLoading(false);
-      console.log(error.message);
-    }
-  };
-
   useEffect(() => {
+    const fetchNewsData = async () => {
+      try {
+        setLoading(true);
+
+        const { data } = await axios.get(url);
+
+        setData(data);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        setError(error.message);
+      }
+    };
     fetchNewsData();
-  }, [query]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, []);
 
-  const handleSearch = (e) => {
-    setSearch(e.target.value);
-  };
-
-  const getSearch = (e) => {
-    e.preventDefault();
-    setQuery(search);
-  };
   return (
     <Box>
-      <Box component="form" onSubmit={getSearch}>
-        <TextField
-          id="filled-basic"
-          label="Search Keyword or phrase. Eg: find all articles containing the word 'Sports'"
-          variant="filled"
-          value={search}
-          onChange={handleSearch}
-          fullWidth
-        />
-      </Box>
       {loading && (
-        <Box
-          sx={{
-            height: "80vh",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <Wrapper>
           <CircularProgress />
-        </Box>
+        </Wrapper>
+      )}
+      {error && (
+        <Wrapper>
+          <CircularProgress />
+        </Wrapper>
       )}
       <Grid container spacing={3} sx={{ mt: 3 }}>
-        {newsItems.map(({ author, source, title, url, urlToImage }) => (
+        {data.map(({ source, title, url, urlToImage }) => (
           <NewsItem
             key={title}
-            author={author}
             source={source}
             title={title}
             url={url}

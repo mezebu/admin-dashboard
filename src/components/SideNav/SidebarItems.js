@@ -6,13 +6,7 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import {
-  StyledSidebar,
-  BottomSecton,
-  Center,
-  Logo,
-  TopSection,
-} from "./styles";
+import { StyledSidebar, Center, Logo, TopSection } from "./styles";
 import CustomLink from "./CustomLink";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
@@ -101,10 +95,7 @@ const drawer = (
           </CustomLink>
         </List>
       ))}
-
-      <Divider />
     </Center>
-    <BottomSecton>bottom</BottomSecton>
   </StyledSidebar>
 );
 

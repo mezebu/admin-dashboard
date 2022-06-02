@@ -10,7 +10,7 @@ const NewsData = () => {
   const [loading, setLoading] = useState(false);
 
   const fetchNewsData = async (e) => {
-    const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=${process.env.REACT_APP_NEWS_API_KEY}`;
+    const url = `https://newsapi.org/v2/everything?q=${query}&apiKey=a6c001d8638c4ed1b0c8a191ffafa7a0`;
 
     try {
       setLoading(true);

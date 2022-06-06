@@ -1,11 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
-import {
-  Divider,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import { Divider, List, ListItem } from "@mui/material";
+import { ListItemIcon, ListItemText } from "@mui/material";
 import { StyledSidebar, Center, Logo, TopSection } from "./styles";
 import CustomLink from "./CustomLink";
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -18,7 +13,7 @@ import NewspaperIcon from "@mui/icons-material/Newspaper";
 const drawerLinks = [
   {
     id: uuidv4(),
-    title: "Dashboard",
+    title: "Overview",
     link: "/",
     icon: <DashboardIcon />,
   },

@@ -5,3 +5,4 @@ export { default as Single } from "./Single/Single";
 export { default as New } from "./New/New";
 export { default as Analytics } from "./Analytics/Analytics";
 export { default as News } from "./News/News";
+export { default as Products } from "./Products/Products";

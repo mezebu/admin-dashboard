@@ -1,45 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Box, CircularProgress, Grid } from "@mui/material";
-import axios from "axios";
 import NewsItem from "./NewsItem";
 import { Wrapper } from "./styles";
-
-const url = "https://62986369f2decf5bb7410008.mockapi.io/news";
+import useAxios from "../../useAxios";
 
 const NewsData = () => {
-  const [data, setData] = useState([]);
-  const [error, setError] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchNewsData = async () => {
-      try {
-        setLoading(true);
-
-        const { data } = await axios.get(url);
-
-        setData(data);
-        setLoading(false);
-      } catch (error) {
-        setLoading(false);
-        setError(error.message);
-      }
-    };
-    fetchNewsData();
-  }, []);
+  // prettier-ignore
+  const { data, error, isLoading } = useAxios("https://62986369f2decf5bb7410008.mockapi.io/news");
 
   return (
     <Box>
-      {loading && (
+      {isLoading && (
         <Wrapper>
           <CircularProgress />
         </Wrapper>
       )}
-      {error && (
-        <Wrapper>
-          <CircularProgress />
-        </Wrapper>
-      )}
+      {error && <Wrapper>{error}</Wrapper>}
       <Grid container spacing={3} sx={{ mt: 3 }}>
         {data.map(({ source, title, url, urlToImage }) => (
           <NewsItem

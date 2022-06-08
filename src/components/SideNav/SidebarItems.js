@@ -5,10 +5,11 @@ import { StyledSidebar, Center, Logo, TopSection } from "./styles";
 import CustomLink from "./CustomLink";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import PersonIcon from "@mui/icons-material/Person";
-import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 import CategoryIcon from "@mui/icons-material/Category";
 import InsightsIcon from "@mui/icons-material/Insights";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 
 const drawerLinks = [
   {
@@ -31,9 +32,9 @@ const drawerLinks = [
   },
   {
     id: uuidv4(),
-    icon: <ProductionQuantityLimitsIcon />,
-    title: "Orders",
-    link: "/orders",
+    icon: <PeopleAltIcon />,
+    title: "Customers",
+    link: "/customers",
   },
   {
     id: uuidv4(),
@@ -43,9 +44,9 @@ const drawerLinks = [
   },
   {
     id: uuidv4(),
-
-    title: "System",
-    link: "/system",
+    icon: <LocalShippingIcon />,
+    title: "Logistics",
+    link: "/logistics",
   },
   {
     id: uuidv4(),

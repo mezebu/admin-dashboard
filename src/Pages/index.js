@@ -6,3 +6,5 @@ export { default as New } from "./New/New";
 export { default as Analytics } from "./Analytics/Analytics";
 export { default as News } from "./News/News";
 export { default as Products } from "./Products/Products";
+export { default as Logistics } from "./Logistics/Logistics";
+export { default as Customers } from "./Customers/Customers";

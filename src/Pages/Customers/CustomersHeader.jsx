@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, Button, Divider, Grid, Typography } from "@mui/material";
+import AddIcon from "@mui/icons-material/Add";
 
 const CustomersHeader = () => {
+  const navigate = useNavigate();
   return (
     <>
       <Grid container>
@@ -30,8 +33,10 @@ const CustomersHeader = () => {
               variant="contained"
               disableElevation
               sx={{ textTransform: "none" }}
+              startIcon={<AddIcon />}
+              onClick={() => navigate("/customers/newcustomer")}
             >
-              Add
+              Add New Customer
             </Button>
           </Box>
         </Grid>

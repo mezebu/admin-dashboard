@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 
-import { Home, List, Login, New, Single, Analytics, News, Products, Logistics, Customers } from "./Pages";
+import { Home, List, Login, New, Single, Analytics, News, Products, Logistics, Customers, NewCustomer, EditCustomer } from "./Pages";
 import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { darkMode, lightMode } from "./styles";
@@ -27,8 +27,7 @@ function App() {
             <Route path="login" element={<Login />} />
             <Route index element={<RequireAuth><Home /></RequireAuth>} />        
             <Route path="news" element={<RequireAuth><News /></RequireAuth>} />    
-             <Route path="logistics" element={<RequireAuth><Logistics /></RequireAuth>}/>      
-             <Route path="customers" element={<RequireAuth><Customers /></RequireAuth>}/>      
+             <Route path="logistics" element={<RequireAuth><Logistics /></RequireAuth>}/>            
             <Route path="users">
               <Route index element={<RequireAuth><List /></RequireAuth>}/>          
               <Route path=":userId" element={<RequireAuth><Single /></RequireAuth>}/>     
@@ -39,7 +38,13 @@ function App() {
               <Route index element={<RequireAuth><Products /></RequireAuth>}/>                   
               <Route path="new" element={<RequireAuth><New inputs={products} title="Add new Product" /></RequireAuth>}/>  
             </Route>
+            <Route path="customers">
+            <Route index element={<RequireAuth><Customers /></RequireAuth>}/>
+            <Route path='newcustomer' element={<RequireAuth><NewCustomer /></RequireAuth>}/>
+            <Route path=':customerId' element={<RequireAuth><EditCustomer /></RequireAuth>}/>
           </Route>
+          </Route>
+          
         </Routes>
       </BrowserRouter>
     </ThemeProvider>

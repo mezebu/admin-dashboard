@@ -8,3 +8,5 @@ export { default as News } from "./News/News";
 export { default as Products } from "./Products/Products";
 export { default as Logistics } from "./Logistics/Logistics";
 export { default as Customers } from "./Customers/Customers";
+export { default as NewCustomer } from "./Customers/NewCustomer";
+export { default as EditCustomer } from "./Customers/EditCustomer";

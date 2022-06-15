@@ -40,9 +40,9 @@ function App() {
             </Route>
             <Route path="customers">
             <Route index element={<RequireAuth><Customers /></RequireAuth>}/>
+            <Route path=":id" element={<RequireAuth><EditCustomer /></RequireAuth>}/>
             <Route path='newcustomer' element={<RequireAuth><NewCustomer /></RequireAuth>}/>
-            <Route path=':customerId' element={<RequireAuth><EditCustomer /></RequireAuth>}/>
-          </Route>
+            </Route>
           </Route>
           
         </Routes>

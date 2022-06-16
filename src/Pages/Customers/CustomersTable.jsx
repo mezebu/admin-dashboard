@@ -49,41 +49,50 @@ const CustomersTable = () => {
         <TableBody>
           {data
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map(({ id, image, orders, city, firstname, lastname, number }) => (
-              <TableRow
-                key={id}
-                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  <Avatar src={image} width={40} height={40} />
-                </TableCell>
-                <TableCell align="left">
-                  <Typography>
-                    {firstname}
-                    {lastname}
-                  </Typography>
-                </TableCell>
-                <TableCell align="left">
-                  <Typography>{city}</Typography>
-                </TableCell>
-                <TableCell align="left">
-                  <Typography>{orders}</Typography>
-                </TableCell>
-                <TableCell align="left">
-                  <Typography variant="subtitle2" color="green">
-                    £{number}
-                  </Typography>
-                </TableCell>
-                <TableCell>
-                  <IconButton
-                    aria-label="view-customer"
-                    onClick={() => handleEdit(id)}
-                  >
-                    <VisibilityIcon />
-                  </IconButton>
-                </TableCell>
-              </TableRow>
-            ))}
+            .map(
+              ({
+                id,
+                image,
+                orders,
+                location,
+                firstname,
+                lastname,
+                amount,
+              }) => (
+                <TableRow
+                  key={id}
+                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                >
+                  <TableCell component="th" scope="row">
+                    <Avatar src={image} width={40} height={40} />
+                  </TableCell>
+                  <TableCell align="left">
+                    <Typography>
+                      {firstname} {lastname}
+                    </Typography>
+                  </TableCell>
+                  <TableCell align="left">
+                    <Typography>{location}</Typography>
+                  </TableCell>
+                  <TableCell align="left">
+                    <Typography>{orders}</Typography>
+                  </TableCell>
+                  <TableCell align="left">
+                    <Typography variant="subtitle2" color="green">
+                      £{amount}
+                    </Typography>
+                  </TableCell>
+                  <TableCell>
+                    <IconButton
+                      aria-label="view-customer"
+                      onClick={() => handleEdit(id)}
+                    >
+                      <VisibilityIcon />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              )
+            )}
           {isLoading &&
             skeletonArray.map(() => (
               <TableRow key={uuidv4()}>
@@ -100,6 +109,15 @@ const CustomersTable = () => {
                 </TableCell>
                 <TableCell align="left">
                   <Skeleton variant="text" width={70} animation="wave" />
+                </TableCell>
+                <TableCell align="left">
+                  <Skeleton variant="text" width={70} animation="wave" />
+                </TableCell>
+                <TableCell align="left">
+                  <Skeleton variant="text" width={70} animation="wave" />
+                </TableCell>
+                <TableCell align="left">
+                  <Skeleton variant="text" width={50} animation="wave" />
                 </TableCell>
               </TableRow>
             ))}

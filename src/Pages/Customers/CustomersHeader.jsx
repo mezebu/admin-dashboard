@@ -13,9 +13,6 @@ const CustomersHeader = () => {
             <Typography variant="h4" fontWeight={700} gutterBottom>
               Customers
             </Typography>
-            <Typography fontWeight={500} marginBottom={3}>
-              Welcome back! We've missed you.👋
-            </Typography>
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={6} lg={6}>

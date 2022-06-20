@@ -5,6 +5,7 @@ import AddIcon from "@mui/icons-material/Add";
 
 const CustomersHeader = () => {
   const navigate = useNavigate();
+
   return (
     <>
       <Grid container>

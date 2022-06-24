@@ -35,7 +35,7 @@ const EditCustomer = () => {
           <Grid item xs={12} sm={6}>
             <TextField
               autoComplete="given-name"
-              value={firstname}
+              value={`First Name: ${firstname}`}
               required
               fullWidth
               id="firstName"
@@ -48,17 +48,17 @@ const EditCustomer = () => {
               fullWidth
               id="lastName"
               variant="outlined"
-              value={lastname}
+              value={`Last Name: ${lastname}`}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
               required
-              fullWidth="Orders"
+              fullWidth
               id="lastName"
               variant="outlined"
               autoComplete="family-name"
-              value={orders}
+              value={`Orders: ${orders}`}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
@@ -78,7 +78,7 @@ const EditCustomer = () => {
               id="lastName"
               variant="outlined"
               autoComplete="family-name"
-              value={amount}
+              value={`£${amount}`}
             />
           </Grid>
         </Grid>

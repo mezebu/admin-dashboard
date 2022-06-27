@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, Divider } from "@mui/material";
 import { IconButton, Tooltip as MuiTooltip, Typography } from "@mui/material";
 import InfoIcon from "@mui/icons-material/Info";
 import { Line } from "react-chartjs-2";
-import { data, options } from "./chartData";
+import { lineData, lineOptions } from "./chartData";
 import { Chart, CategoryScale, LinearScale, PointElement } from "chart.js";
 import { LineElement, Title, Tooltip, Legend } from "chart.js";
 
@@ -36,7 +36,7 @@ const AnalyticsLine = () => {
       />
       <Divider />
       <CardContent>
-        <Line data={data} options={options} />
+        <Line data={lineData} options={lineOptions} />
       </CardContent>
     </Card>
   );

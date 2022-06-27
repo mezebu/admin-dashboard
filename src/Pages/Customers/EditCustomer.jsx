@@ -55,9 +55,9 @@ const EditCustomer = () => {
             <TextField
               required
               fullWidth
-              id="lastName"
+              id="orders"
               variant="outlined"
-              autoComplete="family-name"
+              autoComplete="orders"
               value={`Orders: ${orders}`}
             />
           </Grid>
@@ -65,19 +65,19 @@ const EditCustomer = () => {
             <TextField
               required
               fullWidth
-              id="lastName"
+              id="location"
               variant="outlined"
-              autoComplete="family-name"
-              value={location}
+              autoComplete="location"
+              value={`Location: ${location}`}
             />
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
               required
               fullWidth
-              id="lastName"
+              id="amount"
               variant="outlined"
-              autoComplete="family-name"
+              autoComplete="amount"
               value={`£${amount}`}
             />
           </Grid>

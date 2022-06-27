@@ -1,4 +1,4 @@
-export const data = {
+export const lineData = {
   labels: [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019],
   datasets: [
     {
@@ -34,7 +34,7 @@ export const data = {
   ],
 };
 
-export const options = {
+export const lineOptions = {
   title: {
     display: true,
     text: "World population per region (in millions)",
@@ -45,4 +45,38 @@ export const options = {
     },
   },
   responsive: true,
+};
+
+export const pieData = {
+  labels: ["Instagram", "LinkedIn", "Twitter", "Other"],
+  datasets: [
+    {
+      label: "# of Votes",
+      data: [12, 19, 65, 9],
+      backgroundColor: [
+        "rgba(63, 120, 43, 1)",
+        "rgba(14, 118, 168, 1)",
+        "rgba(0, 172, 238, 1)",
+        "rgba(159, 72, 43, 1)",
+      ],
+      borderColor: [
+        "rgba(255, 99, 132, 1)",
+        "rgba(54, 162, 235, 1)",
+        "rgba(255, 206, 86, 1)",
+        "rgba(255, 150, 173, 1)",
+      ],
+      borderWidth: 1,
+      spacing: 4,
+      cutout: "70%",
+      borderRadius: 3,
+    },
+  ],
+};
+
+export const pieLabelPosition = {
+  plugins: {
+    legend: {
+      position: "bottom",
+    },
+  },
 };

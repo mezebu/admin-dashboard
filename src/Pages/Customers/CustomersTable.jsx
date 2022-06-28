@@ -1,20 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IconButton, TableBody } from "@mui/material";
 import { TableCell, TableContainer } from "@mui/material";
 import { TableHead, TableRow, Paper, Avatar, Table } from "@mui/material";
 import { Divider, Skeleton, TablePagination, Typography } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
+import axios from "axios";
 import VisibilityIcon from "@mui/icons-material/Visibility";
+import DeleteIcon from "@mui/icons-material/Delete";
 import { useNavigate } from "react-router-dom";
 
-import useAxios from "../../useAxios";
+const url = "https://62986369f2decf5bb7410008.mockapi.io/customers";
 
 const CustomersTable = () => {
   const navigate = useNavigate();
-  const { data, isLoading } = useAxios(
-    "https://62986369f2decf5bb7410008.mockapi.io/customers"
-  );
 
+  const [customers, setCustomers] = useState([]);
+  const [isLoading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -27,8 +28,35 @@ const CustomersTable = () => {
     setPage(0);
   };
 
+  useEffect(() => {
+    const getCustomers = async () => {
+      setLoading(true);
+      try {
+        const { data } = await axios.get(url);
+
+        setCustomers(data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getCustomers();
+  }, []);
+
   const handleEdit = (id) => {
     navigate(`/customers/${id}`);
+  };
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`${url}/${id}`)
+      .then(() => {
+        const deleteCustomer = customers.filter(
+          (customer) => customer.id !== id
+        );
+        setCustomers(deleteCustomer);
+      })
+      .catch((error) => console.log(error));
   };
 
   const skeletonArray = Array(5).fill("");
@@ -43,11 +71,11 @@ const CustomersTable = () => {
             <TableCell align="left">Location</TableCell>
             <TableCell align="left">Orders</TableCell>
             <TableCell align="left">Spent(£)</TableCell>
-            <TableCell align="left">Action</TableCell>
+            <TableCell align="center">Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {data
+          {customers
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map(
               ({
@@ -82,12 +110,18 @@ const CustomersTable = () => {
                       £{amount}
                     </Typography>
                   </TableCell>
-                  <TableCell>
+                  <TableCell align="center">
                     <IconButton
                       aria-label="view-customer"
                       onClick={() => handleEdit(id)}
                     >
-                      <VisibilityIcon />
+                      <VisibilityIcon color="primary" />
+                    </IconButton>
+                    <IconButton
+                      aria-label="view-customer"
+                      onClick={() => handleDelete(id)}
+                    >
+                      <DeleteIcon color="error" />
                     </IconButton>
                   </TableCell>
                 </TableRow>
@@ -127,7 +161,7 @@ const CustomersTable = () => {
       <TablePagination
         rowsPerPageOptions={[5, 10]}
         component="div"
-        count={data.length}
+        count={customers.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onPageChange={handleChangePage}

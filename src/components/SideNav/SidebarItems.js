@@ -4,12 +4,12 @@ import { ListItemIcon, ListItemText } from "@mui/material";
 import { StyledSidebar, Center, Logo, TopSection } from "./styles";
 import CustomLink from "./CustomLink";
 import DashboardIcon from "@mui/icons-material/Dashboard";
-import PersonIcon from "@mui/icons-material/Person";
 import CategoryIcon from "@mui/icons-material/Category";
 import InsightsIcon from "@mui/icons-material/Insights";
 import NewspaperIcon from "@mui/icons-material/Newspaper";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import GroupAddIcon from "@mui/icons-material/GroupAdd";
 
 const drawerLinks = [
   {
@@ -20,7 +20,7 @@ const drawerLinks = [
   },
   {
     id: uuidv4(),
-    icon: <PersonIcon />,
+    icon: <GroupAddIcon />,
     title: "Users",
     link: "/users",
   },
@@ -59,12 +59,6 @@ const drawerLinks = [
 
     title: "Settings",
     link: "/settings",
-  },
-  {
-    id: uuidv4(),
-
-    title: "Profile",
-    link: "/users/23",
   },
   {
     id: uuidv4(),

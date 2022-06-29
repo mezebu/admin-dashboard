@@ -90,6 +90,7 @@ const CustomersTable = () => {
                 <TableRow
                   key={id}
                   sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  hover
                 >
                   <TableCell component="th" scope="row">
                     <Avatar src={image} width={40} height={40} />

@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
+import {ToastContainer} from 'react-toastify'
 
-import { Home, List, Login, New, Analytics, News, Products, Logistics, Customers, NewCustomer, EditCustomer } from "./Pages";
+import "react-toastify/dist/ReactToastify.css";
+import { Home, List, Login, New, Analytics, News, Products, Logistics, Customers, NewCustomer, EditCustomer, TodoList } from "./Pages";
 import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { darkMode, lightMode } from "./styles";
@@ -21,6 +23,7 @@ function App() {
 
   return (
     <ThemeProvider theme={switchTheme}>
+      <ToastContainer  />
       <BrowserRouter>
         <Routes>
           <Route path="/">
@@ -32,6 +35,7 @@ function App() {
               <Route index element={<RequireAuth><List /></RequireAuth>}/>             
               <Route path="new" element={<RequireAuth><New inputs={formInputs} title="Add new user" /></RequireAuth>}/>               
               <Route path="analytics" element={<RequireAuth><Analytics /></RequireAuth>}/>               
+              <Route path="todolist" element={<RequireAuth><TodoList /></RequireAuth>}/>               
             </Route>
             <Route path="products">
               <Route index element={<RequireAuth><Products /></RequireAuth>}/>                   

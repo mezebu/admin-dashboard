@@ -10,6 +10,7 @@ import NewspaperIcon from "@mui/icons-material/Newspaper";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import ListIcon from "@mui/icons-material/List";
 
 const drawerLinks = [
   {
@@ -56,9 +57,9 @@ const drawerLinks = [
   },
   {
     id: uuidv4(),
-
-    title: "Settings",
-    link: "/settings",
+    icon: <ListIcon />,
+    title: "Todo List",
+    link: "/users/todolist",
   },
   {
     id: uuidv4(),

@@ -1,12 +1,6 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  Grid,
-  LinearProgress,
-  Typography,
-} from "@mui/material";
 import React from "react";
+import { Box, Card, CardContent, Grid } from "@mui/material";
+import { LinearProgress, Typography } from "@mui/material";
 import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import LocalMallIcon from "@mui/icons-material/LocalMall";
 
@@ -27,7 +21,7 @@ const ProfileWidgets = ({ amount, orders }) => {
                 <Typography variant="h4" fontWeight={500}>
                   ${`${amount}`}
                 </Typography>
-                <Typography variant="body2">Total Earnings</Typography>
+                <Typography variant="body2">Total Spent</Typography>
               </Box>
               <Box>
                 <AttachMoneyIcon color="primary" fontSize="large" />

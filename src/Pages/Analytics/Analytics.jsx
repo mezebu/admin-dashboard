@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Toolbar, Typography } from "@mui/material";
+import { Box, Divider, Toolbar, Typography } from "@mui/material";
 
 import AnalyticsGrid from "./AnalyticsWidget/AnalyticsGrid";
 import UsersAnalytics from "./UsersAnalytics/UsersAnalytics";
@@ -11,9 +11,9 @@ const Analytics = () => {
     <Drawer>
       <Box component="div">
         <Typography variant="h5" fontWeight={700} gutterBottom>
-          Hi, Welcome back!
+          Analytics
         </Typography>
-
+        <Divider />
         <Toolbar />
         <AnalyticsGrid />
         <AnalyticsCharts />

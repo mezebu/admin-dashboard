@@ -20,6 +20,7 @@ import {
   StyledBadge,
 } from "./styles";
 import Notifications from "../NotificationButton/Notifications";
+import henry from "../../assest/hpic.jpg";
 
 const Appbar = ({ drawerToggle, drawerWidth }) => {
   const themeHandler = useThemeUpdate();
@@ -89,10 +90,7 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
                   anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
                   variant="dot"
                 >
-                  <Avatar
-                    alt="Remy Sharp"
-                    src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-                  />
+                  <Avatar alt="Remy Sharp" src={henry} />
                 </StyledBadge>
               </IconButton>
               <IconButton

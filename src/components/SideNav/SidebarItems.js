@@ -72,7 +72,7 @@ const drawerLinks = [
 const drawer = (
   <StyledSidebar>
     <TopSection>
-      <Logo>Logo</Logo>
+      <Logo>Henry's Dashboard</Logo>
     </TopSection>
     <Divider variant="middle" />
     <Center>

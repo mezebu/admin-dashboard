@@ -1,12 +1,13 @@
 import React from "react";
 import * as dayjs from "dayjs";
-import { Card, Divider, Typography } from "@mui/material";
+import { Box, Card, Divider, Typography } from "@mui/material";
 import { CardActions, CardContent, Button } from "@mui/material";
 import { toast } from "react-toastify";
-import CheckBoxIcon from "@mui/icons-material/CheckBox";
-import DeleteIcon from "@mui/icons-material/Delete";
 import { green } from "@mui/material/colors";
 import { motion } from "framer-motion";
+import CheckIcon from "@mui/icons-material/Check";
+import DeleteIcon from "@mui/icons-material/Delete";
+import CheckBoxIcon from "@mui/icons-material/CheckBox";
 
 const child = {
   hidden: { y: 20, opacity: 0 },
@@ -34,7 +35,7 @@ const Todo = ({ title, todoItems, setTodoItems, id, completed, time }) => {
     const filtered = todoItems.filter((item) => item.id !== id);
 
     setTodoItems(filtered);
-    toast.error("Task deleted", {
+    toast.error("Task has been deleted", {
       position: toast.POSITION.BOTTOM_RIGHT,
     });
   };
@@ -43,12 +44,25 @@ const Todo = ({ title, todoItems, setTodoItems, id, completed, time }) => {
     <Card
       component={motion.div}
       variants={child}
-      sx={{ background: completed === true ? green[50] : "" }}
+      variant="outlined"
+      initial="hidden"
+      animate="visible"
+      transition={{ type: "just", delay: 0.5 }}
     >
-      <CardContent>
-        <Typography sx={{ fontWeight: 600 }} variant="body1" gutterBottom>
-          {title}
-        </Typography>
+      <CardContent sx={{ background: completed === true ? green[500] : "" }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography sx={{ fontWeight: 600 }} variant="body1" gutterBottom>
+            {title}
+          </Typography>
+          {completed === true && <CheckIcon fontSize="small" />}
+        </Box>
+
         <Typography variant="subtitle2" color="text.secondary">
           {formatTime}
         </Typography>

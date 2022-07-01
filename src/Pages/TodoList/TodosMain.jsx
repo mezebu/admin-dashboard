@@ -8,15 +8,16 @@ const container = {
   hidden: {
     opacity: 1,
     transition: {
-      when: "afterChildren",
+      staggerChildren: 0.5,
     },
   },
   visible: {
     opacity: 1,
     scale: 1,
     transition: {
-      staggerChildren: 0.5,
-      duration: 4,
+      type: "string",
+      duration: 1,
+      stiffness: 100,
     },
   },
 };
@@ -25,14 +26,7 @@ const TodosMain = ({ todoItems, setTodoItems, filteredCategory }) => {
   return (
     <Box>
       <Toolbar />
-      <Grid
-        container
-        spacing={2}
-        component={motion.div}
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
+      <Grid container spacing={2} component={motion.div} variants={container}>
         <AnimatePresence>
           {filteredCategory.map(({ id, title, completed, time }) => (
             <Grid key={id} item xs={12} sm={12} md={6} lg={4}>

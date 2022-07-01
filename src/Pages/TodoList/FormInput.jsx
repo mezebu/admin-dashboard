@@ -17,9 +17,9 @@ const FormInput = ({ todoItems, setTodoItems, todoInput, setTodoInput, setCatego
     
     if (todoInput === '') {
       toast.error('Please enter a task', {
-        position: toast.POSITION.BOTTOM_RIGHT
+        position: toast.POSITION.TOP_CENTER
       })
-      return
+      return 
     }
 
     setTodoItems([

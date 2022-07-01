@@ -1,17 +1,7 @@
 import React, { useContext, useState } from "react";
-import {
-  Avatar,
-  Box,
-  Container,
-  Typography,
-  TextField,
-  FormControlLabel,
-  Checkbox,
-  Button,
-  Grid,
-  Link,
-  Alert,
-} from "@mui/material";
+import { Avatar, Box, Container, Typography, TextField } from "@mui/material";
+import { FormControlLabel, Checkbox, Button } from "@mui/material";
+import { Grid, Link, Alert } from "@mui/material";
 import LockOpenIcon from "@mui/icons-material/LockOpen";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";

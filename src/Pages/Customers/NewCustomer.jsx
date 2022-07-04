@@ -5,15 +5,19 @@ import axios from "axios";
 import Drawer from "../../components/Drawer/Drawer";
 import { useNavigate } from "react-router-dom";
 
+const initialValues = {
+  firstname: "",
+  lastname: "",
+  location: "",
+  orders: "",
+  amount: "",
+  image: "",
+};
+
 const NewCustomer = () => {
   const navigate = useNavigate();
 
-  const [firstname, setFirstname] = useState("");
-  const [lastname, setLastname] = useState("");
-  const [location, setLocation] = useState("");
-  const [orders, setOrders] = useState("");
-  const [amount, setAmount] = useState("");
-  const [image, setImage] = useState("");
+  const [values, setValues] = useState(initialValues);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,17 +26,21 @@ const NewCustomer = () => {
 
     axios
       .post(url, {
-        firstname,
-        lastname,
-        location,
-        amount,
-        orders,
-        image,
+        firstname: values.firstname,
+        lastname: values.lastname,
+        location: values.location,
+        amount: values.amount,
+        orders: values.orders,
+        image: values.image,
       })
       .then(() => {
         navigate("/customers");
       })
       .catch((error) => console.log(error));
+  };
+
+  const handleChange = (props) => (e) => {
+    setValues({ ...values, [props]: e.target.value });
   };
 
   return (
@@ -47,8 +55,8 @@ const NewCustomer = () => {
                 fullWidth
                 id="first-name"
                 label="First Name"
-                value={firstname}
-                onChange={(e) => setFirstname(e.target.value)}
+                value={values.firstname}
+                onChange={handleChange("firstname")}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -57,8 +65,8 @@ const NewCustomer = () => {
                 fullWidth
                 id="last-name"
                 label="Last Name"
-                value={lastname}
-                onChange={(e) => setLastname(e.target.value)}
+                value={values.lastname}
+                onChange={handleChange("lastname")}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -67,8 +75,8 @@ const NewCustomer = () => {
                 fullWidth
                 id="location"
                 label="Location"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
+                value={values.location}
+                onChange={handleChange("location")}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -78,8 +86,8 @@ const NewCustomer = () => {
                 id="orders"
                 label="Orders"
                 type="number"
-                value={orders}
-                onChange={(e) => setOrders(e.target.value)}
+                value={values.orders}
+                onChange={handleChange("orders")}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -89,8 +97,8 @@ const NewCustomer = () => {
                 id="amount"
                 label="Amount"
                 type="number"
-                value={amount}
-                onChange={(e) => setAmount(e.target.value)}
+                value={values.amount}
+                onChange={handleChange("amount")}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -99,8 +107,8 @@ const NewCustomer = () => {
                 fullWidth
                 id="amount"
                 label="Paste Image Url"
-                value={image}
-                onChange={(e) => setImage(e.target.value)}
+                value={values.image}
+                onChange={handleChange("image")}
               />
             </Grid>
           </Grid>

@@ -23,7 +23,7 @@ function App() {
 
   return (
     <ThemeProvider theme={switchTheme}>
-      <ToastContainer  />
+      <ToastContainer autoClose={3000} />
       <BrowserRouter>
         <Routes>
           <Route path="/">

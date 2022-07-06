@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import ReportIcon from "@mui/icons-material/Report";
 import TimerIcon from "@mui/icons-material/Timer";
+import { blue, green, orange, red } from "@mui/material/colors";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -48,23 +49,63 @@ const dotIcon = (
 );
 
 export const widgetsData = [
-  { id: uuidv4(), icon: dotIcon, desc: "On route vehicles", value: 23 },
+  {
+    id: uuidv4(),
+    icon: dotIcon,
+    desc: "On route vehicles",
+    value: 23,
+    bgColor: green[300],
+  },
   {
     id: uuidv4(),
     icon: <ReportProblemIcon color="error" />,
     desc: "Vehicles with errors",
     value: 7,
+    bgColor: red[300],
   },
   {
     id: uuidv4(),
     icon: <ReportIcon color="warning" />,
     desc: "International deliveries",
     value: 20,
+    bgColor: orange[300],
   },
   {
     id: uuidv4(),
-    icon: <TimerIcon color="error" />,
+    icon: <TimerIcon color="info" />,
     desc: "Late vehicles",
     value: 9,
+    bgColor: blue[200],
   },
 ];
+
+export const doughnutData = {
+  series: [44, 55, 7],
+  options: {
+    chart: {
+      height: 350,
+      type: "radialBar",
+    },
+    plotOptions: {
+      radialBar: {
+        dataLabels: {
+          name: {
+            fontSize: "22px",
+          },
+          value: {
+            fontSize: "16px",
+          },
+          total: {
+            show: true,
+            label: "Total",
+            formatter: function (w) {
+              // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+              return 106;
+            },
+          },
+        },
+      },
+    },
+    labels: ["On route", "Available", "Out of service"],
+  },
+};

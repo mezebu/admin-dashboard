@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import {  Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import {ToastContainer} from 'react-toastify'
 
@@ -9,10 +9,11 @@ import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { darkMode, lightMode } from "./styles";
 import { AuthContext } from "./contexts/AuthContext";
-
+import { AnimatePresence } from "framer-motion";
 
 
 function App() {
+  const location = useLocation()
   const darkTheme = useThemeContext();
   const switchTheme = darkTheme ? darkMode : lightMode;
   const { currentUser } = useContext(AuthContext);
@@ -23,9 +24,9 @@ function App() {
 
   return (
     <ThemeProvider theme={switchTheme}>
+      <AnimatePresence exitBeforeEnter>
       <ToastContainer autoClose={3000} />
-      <BrowserRouter>
-        <Routes>
+        <Routes key={location.pathname} location={location}>
           <Route path="/">
             <Route path="login" element={<Login />} />
             <Route index element={<RequireAuth><Home /></RequireAuth>} />        
@@ -47,9 +48,8 @@ function App() {
             <Route path='newcustomer' element={<RequireAuth><NewCustomer /></RequireAuth>}/>
             </Route>
           </Route>
-          
         </Routes>
-      </BrowserRouter>
+      </AnimatePresence>
     </ThemeProvider>
   );
 }

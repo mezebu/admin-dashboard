@@ -5,6 +5,7 @@ import { CssBaseline, ThemeProvider as MUIThemeProvider } from "@mui/material";
 import { theme } from "./styles";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { AuthContextProvider } from "./contexts/AuthContext";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,7 +14,9 @@ root.render(
       <MUIThemeProvider theme={theme}>
         <CssBaseline />
         <AuthContextProvider>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </AuthContextProvider>
       </MUIThemeProvider>
     </ThemeProvider>

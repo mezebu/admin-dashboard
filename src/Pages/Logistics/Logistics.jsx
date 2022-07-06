@@ -1,16 +1,24 @@
 import React from "react";
-import { Typography } from "@mui/material";
+import { Box, Toolbar, Typography } from "@mui/material";
 
 import Drawer from "../../components/Drawer/Drawer";
 import LogisticsWidgets from "./LogisticsWidgets";
+import AnimatedPage from "../../components/PageAnimatons/AnimatedPage";
+import LogisticsTotal from "./LogisticsTotal";
 
 const Logistics = () => {
   return (
     <Drawer>
-      <Typography variant="h6" fontWeight={600}>
-        Logistics
-      </Typography>
-      <LogisticsWidgets />
+      <Box>
+        <Typography variant="h5" sx={{ fontWeight: 700, mb: 3 }} gutterBottom>
+          Logistics
+        </Typography>
+        <AnimatedPage>
+          <LogisticsWidgets />
+        </AnimatedPage>
+        <Toolbar />
+        <LogisticsTotal />
+      </Box>
     </Drawer>
   );
 };

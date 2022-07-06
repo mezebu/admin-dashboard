@@ -3,6 +3,7 @@ import { Box, Button, Divider, Grid, Typography } from "@mui/material";
 import * as dayjs from "dayjs";
 
 import CardWidgets from "./CardWidgets/CardWidgets";
+import AnimatedPage from "../PageAnimatons/AnimatedPage";
 
 const Widgets = () => {
   const date = dayjs().format("MMMM D");
@@ -43,21 +44,22 @@ const Widgets = () => {
       </Grid>
 
       <Divider sx={{ mt: 2, mb: 5 }} />
-
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={6} lg={3}>
-          <CardWidgets type="user" />
+      <AnimatedPage>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
+            <CardWidgets type="user" />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
+            <CardWidgets type="order" />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
+            <CardWidgets type="earnings" />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} lg={3}>
+            <CardWidgets type="balance" />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={3}>
-          <CardWidgets type="order" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={3}>
-          <CardWidgets type="earnings" />
-        </Grid>
-        <Grid item xs={12} sm={6} md={6} lg={3}>
-          <CardWidgets type="balance" />
-        </Grid>
-      </Grid>
+      </AnimatedPage>
     </>
   );
 };

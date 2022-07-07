@@ -1,12 +1,7 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Grid,
-  Typography,
-} from "@mui/material";
+import { Card, CardContent, CardHeader } from "@mui/material";
+import { Divider, Grid, Typography } from "@mui/material";
+
 import LogisticsChart from "./LogisticsChart";
 import LogisticsTable from "./LogisticsTable";
 

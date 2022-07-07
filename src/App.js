@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import {  Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "@mui/material/styles";
 import {ToastContainer} from 'react-toastify'
 
@@ -9,7 +10,6 @@ import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { darkMode, lightMode } from "./styles";
 import { AuthContext } from "./contexts/AuthContext";
-import { AnimatePresence } from "framer-motion";
 
 
 function App() {

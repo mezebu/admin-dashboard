@@ -1,11 +1,15 @@
 import { v4 as uuidv4 } from "uuid";
+import { blue, green, orange, red } from "@mui/material/colors";
 import { styled } from "@mui/material/styles";
-import Badge from "@mui/material/Badge";
 import { Box } from "@mui/material";
+import Badge from "@mui/material/Badge";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import ReportIcon from "@mui/icons-material/Report";
 import TimerIcon from "@mui/icons-material/Timer";
-import { blue, green, orange, red } from "@mui/material/colors";
+
+import ExellentVehiclesChart from "./ExecellentVehiclesChart";
+import GoodVehiclesChart from "./GoodVehiclesChart";
+import BadVehiclesChart from "./BadVehiclesChart";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -109,3 +113,90 @@ export const doughnutData = {
     labels: ["On route", "Available", "Out of service"],
   },
 };
+
+export const goodVehicles = {
+  series: [10],
+  options: {
+    chart: {
+      height: 350,
+      type: "radialBar",
+    },
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          size: "50%",
+        },
+      },
+    },
+    labels: ["Health"],
+    fill: {
+      colors: ["#FFA500"],
+    },
+  },
+};
+
+export const badVehicles = {
+  series: [5],
+  options: {
+    chart: {
+      height: 350,
+      type: "radialBar",
+    },
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          size: "50%",
+        },
+      },
+    },
+    labels: ["Health"],
+    fill: {
+      colors: ["#F44336"],
+    },
+  },
+};
+
+export const exellentVehicles = {
+  series: [85],
+  options: {
+    chart: {
+      height: 350,
+      type: "radialBar",
+    },
+    plotOptions: {
+      radialBar: {
+        hollow: {
+          size: "50%",
+        },
+      },
+    },
+    labels: ["Health"],
+    fill: {
+      colors: ["#00A300"],
+    },
+  },
+};
+
+export const vehiclesConditions = [
+  {
+    id: uuidv4(),
+    title: "Very Good",
+    chart: <ExellentVehiclesChart />,
+    value: 70,
+    subTitle: "Execellent",
+  },
+  {
+    id: uuidv4(),
+    title: "Good",
+    chart: <GoodVehiclesChart />,
+    value: 20,
+    subTitle: "Good Condition",
+  },
+  {
+    id: uuidv4(),
+    title: "Needs Attention",
+    chart: <BadVehiclesChart />,
+    value: 10,
+    subTitle: "Needs Urgent Repair",
+  },
+];

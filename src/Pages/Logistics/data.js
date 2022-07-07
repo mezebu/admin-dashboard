@@ -124,7 +124,7 @@ export const goodVehicles = {
     plotOptions: {
       radialBar: {
         hollow: {
-          size: "50%",
+          size: "60%",
         },
       },
     },
@@ -145,7 +145,7 @@ export const badVehicles = {
     plotOptions: {
       radialBar: {
         hollow: {
-          size: "50%",
+          size: "60%",
         },
       },
     },
@@ -166,7 +166,7 @@ export const exellentVehicles = {
     plotOptions: {
       radialBar: {
         hollow: {
-          size: "50%",
+          size: "60%",
         },
       },
     },

@@ -5,6 +5,7 @@ import Drawer from "../../components/Drawer/Drawer";
 import LogisticsWidgets from "./LogisticsWidgets";
 import AnimatedPage from "../../components/PageAnimatons/AnimatedPage";
 import LogisticsTotal from "./LogisticsTotal";
+import LogisticsCondition from "./LogisticsCondition";
 
 const Logistics = () => {
   return (
@@ -18,6 +19,7 @@ const Logistics = () => {
         </AnimatedPage>
         <Toolbar />
         <LogisticsTotal />
+        <LogisticsCondition />
       </Box>
     </Drawer>
   );

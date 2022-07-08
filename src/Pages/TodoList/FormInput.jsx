@@ -68,7 +68,7 @@ const FormInput = ({ todoItems, setTodoItems, todoInput, setTodoInput, setCatego
             />
           </FormControl>
         </Box>
-        <Box sx={{ minWidth: 100 }}>
+        <Box sx={{ minWidth: 150 }}>
           <FormControl fullWidth>
             <InputLabel>Category</InputLabel>
             <Select

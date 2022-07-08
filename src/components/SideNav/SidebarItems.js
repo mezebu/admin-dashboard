@@ -11,6 +11,7 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import ListIcon from "@mui/icons-material/List";
+import dashboard from "../../assest/dashboard.svg";
 
 const drawerLinks = [
   {
@@ -72,7 +73,8 @@ const drawerLinks = [
 const drawer = (
   <StyledSidebar>
     <TopSection>
-      <Logo>Henry's Dashboard</Logo>
+      <img src={dashboard} alt="dashboard-icon" height="40px" width="40px" />
+      <Logo>Admin Dashboard</Logo>
     </TopSection>
     <Divider variant="middle" />
     <Center>

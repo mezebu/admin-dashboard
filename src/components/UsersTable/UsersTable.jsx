@@ -57,6 +57,7 @@ const UsersTable = () => {
         <TableBody>
           {data.map(({ id, nameSurname, username, email, country, img }) => (
             <TableRow
+              hover
               key={id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
             >

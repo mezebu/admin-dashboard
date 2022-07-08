@@ -4,6 +4,7 @@ import { Box, Divider, Typography } from "@mui/material";
 import Drawer from "../../components/Drawer/Drawer";
 import FormInput from "./FormInput";
 import TodosMain from "./TodosMain";
+import AnimatedPage from "../../components/PageAnimatons/AnimatedPage";
 
 const TodoList = () => {
   const [todoInput, setTodoInput] = useState("");
@@ -53,7 +54,7 @@ const TodoList = () => {
 
   return (
     <Drawer>
-      <Box>
+      <AnimatedPage>
         <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
           Todo List
         </Typography>
@@ -75,7 +76,7 @@ const TodoList = () => {
             setTodoItems={setTodoItems}
           />
         </Box>
-      </Box>
+      </AnimatedPage>
     </Drawer>
   );
 };

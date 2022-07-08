@@ -25,7 +25,7 @@ function App() {
   return (
     <ThemeProvider theme={switchTheme}>
       <AnimatePresence exitBeforeEnter>
-      <ToastContainer autoClose={3000} />
+      <ToastContainer autoClose={2000} />
         <Routes key={location.pathname} location={location}>
           <Route path="/">
             <Route path="login" element={<Login />} />

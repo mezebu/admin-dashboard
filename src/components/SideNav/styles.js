@@ -10,7 +10,6 @@ const TopSection = styled(Box)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
-  color: "purple",
   height: 62,
 });
 
@@ -34,6 +33,7 @@ const BottomSecton = styled(Box)({
 
 const Logo = styled("span")({
   fontWeight: "bold",
+  marginLeft: 6,
 });
 
 const darkMode = createTheme({

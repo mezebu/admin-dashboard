@@ -24,10 +24,10 @@ const container = {
 
 const TodosMain = ({ todoItems, setTodoItems, filteredCategory }) => {
   return (
-    <Box>
-      <Toolbar />
-      <Grid container spacing={2} component={motion.div} variants={container}>
-        <AnimatePresence>
+    <AnimatePresence>
+      <Box>
+        <Toolbar />
+        <Grid container spacing={2} component={motion.div} variants={container}>
           {filteredCategory.map(({ id, title, completed, time }) => (
             <Grid key={id} item xs={12} sm={12} md={6} lg={4}>
               <Todo
@@ -40,9 +40,9 @@ const TodosMain = ({ todoItems, setTodoItems, filteredCategory }) => {
               />
             </Grid>
           ))}
-        </AnimatePresence>
-      </Grid>
-    </Box>
+        </Grid>
+      </Box>
+    </AnimatePresence>
   );
 };
 

@@ -4,10 +4,10 @@ import { TableCell, TableContainer } from "@mui/material";
 import { TableHead, TableRow, Paper, Avatar, Table } from "@mui/material";
 import { Divider, Skeleton, TablePagination, Typography } from "@mui/material";
 import { v4 as uuidv4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { useNavigate } from "react-router-dom";
 
 const url = "https://62986369f2decf5bb7410008.mockapi.io/customers";
 

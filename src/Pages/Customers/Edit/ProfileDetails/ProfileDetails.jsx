@@ -1,13 +1,6 @@
-import {
-  Avatar,
-  Box,
-  Button,
-  Card,
-  CardActions,
-  CardContent,
-  Typography,
-} from "@mui/material";
 import React from "react";
+import { Avatar, Box, Button, Card } from "@mui/material";
+import { CardActions, CardContent, Typography } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 
 const ProfileDetails = ({ image, firstname, lastname }) => {

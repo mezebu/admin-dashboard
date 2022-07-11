@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import {  Routes, Route, Navigate, useLocation } from "react-router-dom";
+import {  Routes, Route, Navigate } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "@mui/material/styles";
 import {ToastContainer} from 'react-toastify'
@@ -15,7 +15,6 @@ import { Triangle } from "react-loader-spinner";
 
 
 function App() {
-  const location = useLocation()
   const darkTheme = useThemeContext();
   const switchTheme = darkTheme ? darkMode : lightMode;
   const { currentUser } = useContext(AuthContext);
@@ -37,7 +36,7 @@ function App() {
       {loader ? (<Loader ><Triangle height="150" width="150" ariaLabel="loading-indicator" /></Loader>) : (
         <AnimatePresence exitBeforeEnter>
         <ToastContainer autoClose={2000} />
-        <Routes key={location.pathname} location={location}>
+        <Routes>
           <Route path="/">
             <Route path="login" element={<Login />} />
             <Route index element={<RequireAuth><Home /></RequireAuth>} />        

@@ -62,12 +62,6 @@ const drawerLinks = [
     title: "Todo List",
     link: "/users/todolist",
   },
-  {
-    id: uuidv4(),
-
-    title: "Logout",
-    link: "/logout",
-  },
 ];
 
 const drawer = (

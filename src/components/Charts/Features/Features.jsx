@@ -1,20 +1,14 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import { CardActions, Collapse, IconButton } from "@mui/material";
+import { CardActions, Collapse, IconButton, TableHead } from "@mui/material";
+import { Box, Card, CardContent, Typography, Table } from "@mui/material";
+import { TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
+import { green, red } from "@mui/material/colors";
+
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { ExpandMore } from "./styles";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import { green, red } from "@mui/material/colors";
+
 import { featureChart, rows } from "./data.js";
+import { ExpandMore } from "./styles";
 
 const Features = () => {
   const [expanded, setExpanded] = useState(false);

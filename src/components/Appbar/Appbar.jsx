@@ -11,14 +11,9 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 import { useThemeContext, useThemeUpdate } from "../../contexts/ThemeContext";
 import { lightMode } from "../../styles";
-import {
-  Search,
-  SearchIconWrapper,
-  StyledInputBase,
-  darkMode,
-  ElevationScroll,
-  StyledBadge,
-} from "./styles";
+// prettier-ignore
+import { Search, SearchIconWrapper, StyledInputBase, darkMode, ElevationScroll, StyledBadge,} from "./styles";
+
 import Notifications from "../NotificationButton/Notifications";
 import henry from "../../assest/hpic.jpg";
 

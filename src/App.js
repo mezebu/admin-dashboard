@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import {  Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import { ThemeProvider } from "@mui/material/styles";
@@ -8,8 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 import { Home, List, Login, New, Analytics, News, Products, Logistics, Customers, NewCustomer, EditCustomer, TodoList } from "./Pages";
 import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
-import { darkMode, lightMode } from "./styles";
+import { darkMode, lightMode, Loader } from "./styles";
 import { AuthContext } from "./contexts/AuthContext";
+import { Triangle } from "react-loader-spinner";
+
 
 
 function App() {
@@ -18,14 +20,23 @@ function App() {
   const switchTheme = darkTheme ? darkMode : lightMode;
   const { currentUser } = useContext(AuthContext);
 
+  const [loader, setLoader] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoader(false)
+    }, 5000);
+  }, [])
+
   const RequireAuth = ({ children }) => {
     return currentUser ? children : <Navigate to="/login" />;
   };
 
   return (
     <ThemeProvider theme={switchTheme}>
-      <AnimatePresence exitBeforeEnter>
-      <ToastContainer autoClose={2000} />
+      {loader ? (<Loader ><Triangle height="150" width="150" ariaLabel="loading-indicator" /></Loader>) : (
+        <AnimatePresence exitBeforeEnter>
+        <ToastContainer autoClose={2000} />
         <Routes key={location.pathname} location={location}>
           <Route path="/">
             <Route path="login" element={<Login />} />
@@ -50,6 +61,8 @@ function App() {
           </Route>
         </Routes>
       </AnimatePresence>
+        )}
+      
     </ThemeProvider>
   );
 }

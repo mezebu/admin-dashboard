@@ -1,4 +1,12 @@
-import { createTheme } from "@mui/material";
+import { Box, createTheme, styled } from "@mui/material";
+
+const Loader = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "100vh",
+  backgroundColor: "rgb(10, 25, 41)",
+});
 
 const theme = createTheme({
   typography: {
@@ -31,4 +39,4 @@ const lightMode = createTheme({
     fontFamily: ["Quicksand"].join(","),
   },
 });
-export { theme, darkMode, lightMode };
+export { theme, darkMode, lightMode, Loader };

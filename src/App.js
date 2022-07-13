@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import {  Routes, Route, Navigate, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import {  Routes, Route, Navigate,  } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import {ToastContainer} from 'react-toastify'
+import { Triangle } from "react-loader-spinner";
 
 import "react-toastify/dist/ReactToastify.css";
 import { Home, List, Login, New, Analytics, News, Products, Logistics, Customers, NewCustomer, EditCustomer, TodoList } from "./Pages";
@@ -10,12 +10,8 @@ import { formInputs, products } from "./formInputs";
 import { useThemeContext } from "./contexts/ThemeContext";
 import { darkMode, lightMode, Loader } from "./styles";
 import { AuthContext } from "./contexts/AuthContext";
-import { Triangle } from "react-loader-spinner";
-
-
 
 function App() {
-  const location = useLocation()
   const darkTheme = useThemeContext();
   const switchTheme = darkTheme ? darkMode : lightMode;
   const { currentUser } = useContext(AuthContext);
@@ -35,9 +31,9 @@ function App() {
   return (
     <ThemeProvider theme={switchTheme}>
       {loader ? (<Loader ><Triangle height="150" width="150" ariaLabel="loading-indicator" /></Loader>) : (
-        <AnimatePresence exitBeforeEnter>
+        <>
         <ToastContainer autoClose={2000} />
-        <Routes key={location.pathname} location={location}>
+        <Routes>
           <Route path="/">
             <Route path="login" element={<Login />} />
             <Route index element={<RequireAuth><Home /></RequireAuth>} />        
@@ -60,7 +56,7 @@ function App() {
             </Route>
           </Route>
         </Routes>
-      </AnimatePresence>
+     </>
         )}
       
     </ThemeProvider>

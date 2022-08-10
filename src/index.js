@@ -5,7 +5,6 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { CssBaseline, ThemeProvider as MUIThemeProvider } from "@mui/material";
 import { theme } from "./styles";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import { AuthContextProvider } from "./contexts/AuthContext";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -14,11 +13,9 @@ root.render(
     <ThemeProvider>
       <MUIThemeProvider theme={theme}>
         <CssBaseline />
-        <AuthContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </AuthContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </MUIThemeProvider>
     </ThemeProvider>
   </React.StrictMode>

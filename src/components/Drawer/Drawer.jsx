@@ -12,7 +12,7 @@ const Drawer = ({ children }) => {
     setMobileOpen(!mobileOpen);
   };
   return (
-    <Box sx={{ display: { sm: "flex" } }}>
+    <Box sx={{ display: { md: "flex" } }}>
       <CssBaseline />
       <Appbar drawerToggle={handleDrawerToggle} drawerWidth={drawerWidth} />
       <SideNav
@@ -25,7 +25,7 @@ const Drawer = ({ children }) => {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { md: `calc(100% - ${drawerWidth}px)` },
         }}
       >
         <Toolbar />

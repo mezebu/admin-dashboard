@@ -34,8 +34,8 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
           <AppBar
             color="inherit"
             sx={{
-              width: { sm: `calc(100% - ${drawerWidth}px)` },
-              ml: { sm: `${drawerWidth}px` },
+              width: { md: `calc(100% - ${drawerWidth}px)` },
+              ml: { md: `${drawerWidth}px` },
               background: "rgba( 255, 255, 255, 0 )",
               border: "1px solid rgba( 255, 255, 255, 0.18 )",
               backdropFilter: "blur(17px)",
@@ -47,7 +47,7 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
                 aria-label="open drawer"
                 edge="start"
                 onClick={drawerToggle}
-                sx={{ mr: 2, display: { sm: "none" } }}
+                sx={{ mr: 2, display: { md: "none" } }}
               >
                 <MenuIcon />
               </IconButton>

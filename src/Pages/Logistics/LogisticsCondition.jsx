@@ -1,13 +1,6 @@
 import React from "react";
-import {
-  Box,
-  Card,
-  Divider,
-  Grid,
-  Paper,
-  Toolbar,
-  Typography,
-} from "@mui/material";
+import { Box, Card, Divider, Grid } from "@mui/material";
+import { Paper, Toolbar, Typography } from "@mui/material";
 import { vehiclesConditions } from "./data";
 
 const LogisticsCondition = () => {

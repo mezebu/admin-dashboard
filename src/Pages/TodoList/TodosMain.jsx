@@ -29,7 +29,7 @@ const TodosMain = ({ todoItems, setTodoItems, filteredCategory }) => {
         <Toolbar />
         <Grid container spacing={2} component={motion.div} variants={container}>
           {filteredCategory.map(({ id, title, completed, time }) => (
-            <Grid key={id} item xs={12} sm={12} md={6} lg={4}>
+            <Grid key={id} item xs={12} sm={6} md={6} lg={4}>
               <Todo
                 todoItems={todoItems}
                 setTodoItems={setTodoItems}

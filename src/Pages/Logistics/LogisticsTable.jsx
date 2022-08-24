@@ -28,7 +28,7 @@ const LogisticsTable = () => {
     <Box sx={{ p: 5 }}>
       <Typography variant="body1">Total</Typography>
       <Typography variant="h6" sx={{ fontSize: 29, fontWeight: 700 }}>
-        100
+        106
       </Typography>
       <Divider />
       {items.map(({ id, color, title, value }) => (

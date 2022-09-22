@@ -6,3 +6,9 @@ export const Wrapper = styled(Box)({
   alignItems: "center",
   justifyContent: "center",
 });
+
+export const StyledTitle = styled(Box)({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "space-between",
+});

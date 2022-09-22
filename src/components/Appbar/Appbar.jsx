@@ -1,18 +1,14 @@
 import React from "react";
-import MailIcon from "@mui/icons-material/Mail";
-import SearchIcon from "@mui/icons-material/Search";
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
-import BrightnessHighIcon from "@mui/icons-material/BrightnessHigh";
-import { Avatar, Badge, Box, IconButton } from "@mui/material";
+import { Avatar, Badge, Box, IconButton, Toolbar } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
+import BrightnessHighIcon from "@mui/icons-material/BrightnessHigh";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
 import MenuIcon from "@mui/icons-material/Menu";
+import MailIcon from "@mui/icons-material/Mail";
 
+import { darkMode, ElevationScroll, StyledBadge, StyledAppBar } from "./styles";
 import { useThemeContext, useThemeUpdate } from "../../contexts/ThemeContext";
 import { lightMode } from "../../styles";
-// prettier-ignore
-import { Search, SearchIconWrapper, StyledInputBase, darkMode, ElevationScroll, StyledBadge,} from "./styles";
 
 import Notifications from "../NotificationButton/Notifications";
 import henry from "../../assest/hpic.jpg";
@@ -31,14 +27,11 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
     <ThemeProvider theme={themeToggle}>
       <Box sx={{ flexGrow: 1 }}>
         <ElevationScroll>
-          <AppBar
+          <StyledAppBar
             color="inherit"
             sx={{
               width: { md: `calc(100% - ${drawerWidth}px)` },
               ml: { md: `${drawerWidth}px` },
-              background: "rgba( 255, 255, 255, 0 )",
-              border: "1px solid rgba( 255, 255, 255, 0.18 )",
-              backdropFilter: "blur(17px)",
             }}
           >
             <Toolbar>
@@ -53,15 +46,6 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
               </IconButton>
               <Box sx={{ flexGrow: 1 }} />
 
-              <Search>
-                <SearchIconWrapper>
-                  <SearchIcon />
-                </SearchIconWrapper>
-                <StyledInputBase
-                  placeholder="Search…"
-                  inputProps={{ "aria-label": "search" }}
-                />
-              </Search>
               <IconButton
                 size="large"
                 aria-label="show 4 new mails"
@@ -96,7 +80,7 @@ const Appbar = ({ drawerToggle, drawerWidth }) => {
                 {icon}
               </IconButton>
             </Toolbar>
-          </AppBar>
+          </StyledAppBar>
         </ElevationScroll>
       </Box>
     </ThemeProvider>

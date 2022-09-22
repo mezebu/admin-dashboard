@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Avatar, Box, IconButton, Paper } from "@mui/material";
 import { Table, TableBody, TableCell, TableContainer } from "@mui/material";
-import { TableHead, TableRow, Tooltip } from "@mui/material";
 import { collection, deleteDoc, doc, onSnapshot } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
-import VisibilityIcon from "@mui/icons-material/Visibility";
+import { TableHead, TableRow, Tooltip } from "@mui/material";
+import { Avatar, IconButton, Paper } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 
 import { db } from "../../firebase";
 
 const UsersTable = () => {
-  const navigate = useNavigate();
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -43,7 +40,7 @@ const UsersTable = () => {
 
   return (
     <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+      <Table sx={{ minWidth: 650 }} aria-label="users table">
         <TableHead>
           <TableRow>
             <TableCell align="left">Avatar</TableCell>
@@ -69,22 +66,12 @@ const UsersTable = () => {
               <TableCell align="center">{username}</TableCell>
               <TableCell align="center">{country}</TableCell>
               <TableCell align="center">{email}</TableCell>
-              <TableCell align="right">
-                <Box sx={{ display: "flex", alignItems: "flex-end" }}>
-                  <Tooltip title="View User">
-                    <IconButton
-                      aria-label="view"
-                      onClick={() => navigate("/users/13")}
-                    >
-                      <VisibilityIcon />
-                    </IconButton>
-                  </Tooltip>
-                  <Tooltip title="Delete">
-                    <IconButton onClick={() => deleteHandler(id)}>
-                      <DeleteIcon />
-                    </IconButton>
-                  </Tooltip>
-                </Box>
+              <TableCell align="left">
+                <Tooltip title="Delete">
+                  <IconButton onClick={() => deleteHandler(id)}>
+                    <DeleteIcon />
+                  </IconButton>
+                </Tooltip>
               </TableCell>
             </TableRow>
           ))}

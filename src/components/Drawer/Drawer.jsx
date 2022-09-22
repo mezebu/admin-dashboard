@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Box, CssBaseline, Toolbar } from "@mui/material";
-import Appbar from "../Appbar/Appbar";
+
 import SideNav from "../SideNav/SideNav";
+import Appbar from "../Appbar/Appbar";
 
 const drawerWidth = 240;
 

@@ -2,16 +2,16 @@ import { v4 as uuidv4 } from "uuid";
 import { Divider, List, ListItem } from "@mui/material";
 import { ListItemIcon, ListItemText } from "@mui/material";
 import { StyledSidebar, Center, Logo, TopSection } from "./styles";
-import CustomLink from "./CustomLink";
+import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import DashboardIcon from "@mui/icons-material/Dashboard";
+import NewspaperIcon from "@mui/icons-material/Newspaper";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import CategoryIcon from "@mui/icons-material/Category";
 import InsightsIcon from "@mui/icons-material/Insights";
-import NewspaperIcon from "@mui/icons-material/Newspaper";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
-import ListIcon from "@mui/icons-material/List";
 import dashboard from "../../assest/dashboard.svg";
+import ListIcon from "@mui/icons-material/List";
+import CustomLink from "./CustomLink";
 
 const drawerLinks = [
   {
